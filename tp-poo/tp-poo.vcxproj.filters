@@ -24,9 +24,6 @@
     <ClCompile Include="Consola.cpp">
       <Filter>Source Files\consola</Filter>
     </ClCompile>
-    <ClCompile Include="Exemplo.cpp">
-      <Filter>Source Files\consola</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Consola.h">

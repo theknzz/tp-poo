@@ -116,7 +116,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Consola.cpp" />
-    <ClCompile Include="Exemplo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Consola.h" />
