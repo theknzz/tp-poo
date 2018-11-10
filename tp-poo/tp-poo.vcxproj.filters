@@ -47,5 +47,8 @@
     <ClInclude Include="Navio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Tipo_Navio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

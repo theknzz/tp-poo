@@ -124,6 +124,7 @@
     <ClInclude Include="Comandos.h" />
     <ClInclude Include="Consola.h" />
     <ClInclude Include="Navio.h" />
+    <ClInclude Include="Tipo_Navio.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
