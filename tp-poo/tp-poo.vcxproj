@@ -115,10 +115,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Comandos.cpp" />
     <ClCompile Include="Consola.cpp" />
+    <ClCompile Include="Navio.cpp" />
+    <ClCompile Include="Principal.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Comandos.h" />
     <ClInclude Include="Consola.h" />
+    <ClInclude Include="Navio.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

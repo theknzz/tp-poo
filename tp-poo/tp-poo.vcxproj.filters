@@ -19,15 +19,33 @@
     <Filter Include="Header Files\consola">
       <UniqueIdentifier>{9d3f88ff-c4a1-47a0-90d7-785ff863996a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Navios">
+      <UniqueIdentifier>{d67f6958-d84d-41fd-859d-267e314169df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Consola.cpp">
       <Filter>Source Files\consola</Filter>
     </ClCompile>
+    <ClCompile Include="Comandos.cpp">
+      <Filter>Source Files\consola</Filter>
+    </ClCompile>
+    <ClCompile Include="Principal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Navio.cpp">
+      <Filter>Source Files\Navios</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Consola.h">
       <Filter>Header Files\consola</Filter>
+    </ClInclude>
+    <ClInclude Include="Comandos.h">
+      <Filter>Header Files\consola</Filter>
+    </ClInclude>
+    <ClInclude Include="Navio.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
