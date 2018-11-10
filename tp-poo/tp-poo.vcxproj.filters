@@ -13,5 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\consola">
+      <UniqueIdentifier>{418e1365-34e8-472e-abc8-59c9613ab956}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\consola">
+      <UniqueIdentifier>{9d3f88ff-c4a1-47a0-90d7-785ff863996a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Consola.cpp">
+      <Filter>Source Files\consola</Filter>
+    </ClCompile>
+    <ClCompile Include="Exemplo.cpp">
+      <Filter>Source Files\consola</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Consola.h">
+      <Filter>Header Files\consola</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
