@@ -8,18 +8,21 @@ using namespace std;
 class Navio
 {
 	char tipo;  // Tipo de embarcação
-	const int id;   // numero que identificao
+	int id;   // numero que identificao
 	int preco;  // preco
 	int qt_agua; // tamanho do reservatorio de agua
 	int nr_soldados; // numero de soldados
 	int capacidade; // capacidade para mercadoria (toneladas)
 	int x, y; // coordenadas
 
-public:
-	Navio(char t,int n, int p, int qt, int nr, int c, int x, int y);
+protected:
+	static int conta; // criador do id
 
+public:
+	Navio(char t, int p, int qt, int nr, int c, int x, int y);
 
 	// funcoes set
+	void set_id();
 	void set_tipo(char t);
 	void set_preco(int p);
 	void set_agua(int qt);

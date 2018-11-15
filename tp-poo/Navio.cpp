@@ -4,14 +4,20 @@
 #include <iostream>
 
 
-Navio::Navio(char t, int n, int p, int qt, int nr, int c, int x, int y)
-	: tipo(t), id(n), preco(p), qt_agua(qt), nr_soldados(nr), capacidade(c), x(x), y(y)
+Navio::Navio(char t, int p, int qt, int nr, int c, int x, int y)
+	: tipo(t), preco(p), qt_agua(qt), nr_soldados(nr), capacidade(c), x(x), y(y)
 {
+	id = ++conta;
 	cout << getAsString();
 }
 
 // -------------------------------------
 
+
+void Navio::set_id()
+{
+	id = 1; // criar uma variavel global?
+}
 void Navio::set_tipo(char t)
 {
 	this->tipo = t;
@@ -34,11 +40,17 @@ void Navio::set_agua(int qt)
 
 void Navio::set_soldados(int nr)
 {
+	if (nr < 0)
+		this->nr_soldados = nr;
+
 	this->nr_soldados = nr;
 }
 
 void Navio::set_capacidade(int c)
 {
+	if (c < 0)
+		this->capacidade = 0;
+
 	this->capacidade = c;
 }
 
