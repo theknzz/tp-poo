@@ -7,8 +7,6 @@ class Navio;
 
 class Frota
 {
-	vector <Navio> Nv_jogador;
-	vector <Navio> Nv_piratas;
 public:
 	Frota();
 

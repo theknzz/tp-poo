@@ -13,11 +13,6 @@ Navio::Navio(char t, int p, int qt, int nr, int c, int x, int y)
 
 // -------------------------------------
 
-
-void Navio::set_id()
-{
-	id = 1; // criar uma variavel global?
-}
 void Navio::set_tipo(char t)
 {
 	this->tipo = t;
@@ -40,9 +35,6 @@ void Navio::set_agua(int qt)
 
 void Navio::set_soldados(int nr)
 {
-	if (nr < 0)
-		this->nr_soldados = nr;
-
 	this->nr_soldados = nr;
 }
 

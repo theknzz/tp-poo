@@ -22,7 +22,6 @@ public:
 	Navio(char t, int p, int qt, int nr, int c, int x, int y);
 
 	// funcoes set
-	void set_id();
 	void set_tipo(char t);
 	void set_preco(int p);
 	void set_agua(int qt);

@@ -118,6 +118,7 @@
     <ClCompile Include="Comandos.cpp" />
     <ClCompile Include="Consola.cpp" />
     <ClCompile Include="Frota.cpp" />
+    <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Navio.cpp" />
     <ClCompile Include="Principal.cpp" />
     <ClCompile Include="Utils.cpp" />
@@ -126,6 +127,7 @@
     <ClInclude Include="Comandos.h" />
     <ClInclude Include="Consola.h" />
     <ClInclude Include="Frota.h" />
+    <ClInclude Include="Jogador.h" />
     <ClInclude Include="Navio.h" />
     <ClInclude Include="Tipo_Navio.h" />
     <ClInclude Include="Utils.h" />
