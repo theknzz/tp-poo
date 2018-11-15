@@ -1,10 +1,14 @@
 #pragma once
 #include "Navio.h"
 
+#include <vector>
+
 class Navio;
 
 class Frota
 {
+	vector <Navio> Nv_jogador;
+	vector <Navio> Nv_piratas;
 public:
 	Frota();
 

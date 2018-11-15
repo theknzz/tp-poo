@@ -25,9 +25,6 @@
     <Filter Include="Header Files\Navios">
       <UniqueIdentifier>{2bb39a44-7a79-4d42-bbba-d1e15827991d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\mapa">
-      <UniqueIdentifier>{edd2e08c-ebfa-4918-b14b-8253f4850556}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Consola.cpp">
@@ -45,8 +42,8 @@
     <ClCompile Include="Frota.cpp">
       <Filter>Source Files\Navios</Filter>
     </ClCompile>
-    <ClCompile Include="utils.cpp">
-      <Filter>Source Files\mapa</Filter>
+    <ClCompile Include="Utils.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -65,12 +62,15 @@
     <ClInclude Include="Navio.h">
       <Filter>Header Files\Navios</Filter>
     </ClInclude>
-    <ClInclude Include="utils.h">
-      <Filter>Header Files\Navios</Filter>
+    <ClInclude Include="Utils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="mapa.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="test.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
