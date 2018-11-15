@@ -3,4 +3,13 @@
 
 using namespace std;
 
-vector<vector <char>> le_fich(istream & fich);
+class Utils
+{
+public:
+
+	int menu_opt(string s);
+
+
+	// funcoes
+	vector<vector <char>> le_fich(istream & fich);
+};

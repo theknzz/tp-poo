@@ -5,14 +5,14 @@
 #include <sstream>
 #include <string>
 
+using namespace std;
+
 class Comandos
 {
-
 public:
-	Comandos();
 
+	bool menu()const;
 
-	~Comandos();
 };
 
 #endif

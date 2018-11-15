@@ -1,11 +1,14 @@
 #include "Comandos.h"
 
 
-Comandos::Comandos()
+bool Comandos::menu()const
 {
-}
+	string comando;
+	cout << "Comando: ";
+	getline(cin, comando);
 
+	istringstream iss(comando);
+	iss >> comando;
 
-Comandos::~Comandos()
-{
+	
 }
