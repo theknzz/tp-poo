@@ -7,7 +7,6 @@ class Veleiro : public Navio
 {
 public:
 	Veleiro(char t, int p, int qt, int nr, int c, int x, int y);
-
 	~Veleiro();
 };
 

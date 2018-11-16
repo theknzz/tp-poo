@@ -39,9 +39,6 @@
     <ClCompile Include="Navio.cpp">
       <Filter>Source Files\Navios</Filter>
     </ClCompile>
-    <ClCompile Include="Frota.cpp">
-      <Filter>Source Files\Navios</Filter>
-    </ClCompile>
     <ClCompile Include="Jogador.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -54,9 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Consola.h">
-      <Filter>Header Files\consola</Filter>
-    </ClInclude>
-    <ClInclude Include="Comandos.h">
       <Filter>Header Files\consola</Filter>
     </ClInclude>
     <ClInclude Include="Frota.h">
@@ -73,6 +67,9 @@
     </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Comandos.h">
+      <Filter>Header Files\consola</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
