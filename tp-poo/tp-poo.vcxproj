@@ -115,11 +115,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Comandos.cpp" />
     <ClCompile Include="Consola.cpp" />
-    <ClCompile Include="Exemplo.cpp" />
+    <ClCompile Include="Jogador.cpp" />
+    <ClCompile Include="Navio.cpp" />
+    <ClCompile Include="Principal.cpp" />
+    <ClCompile Include="Tipo_Navio.cpp" />
+    <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Comandos.h" />
     <ClInclude Include="Consola.h" />
+    <ClInclude Include="Frota.h" />
+    <ClInclude Include="Jogador.h" />
+    <ClInclude Include="Navio.h" />
+    <ClInclude Include="Tipo_Navio.h" />
+    <ClInclude Include="Utils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="mapa.txt" />
+    <Text Include="test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
