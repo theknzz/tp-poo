@@ -1,148 +1,97 @@
 #include <iostream>
-#include <string>
 #include <fstream>
 #include <vector>
 #include <iostream>
-#include "utils.h"
 
+#include "utils.h"
+#include "Tipo_Navio.h"
+#include "Jogador.h"
 
 using namespace std;
 
-//vector<vector <char>> Utils::le_fich(istream& fich)
-//{
-//	int colunas, linhas;
-//	string tipo;
-//
-//	vector<vector <char>> mapa;
-//	fich >> tipo >> linhas;
-//	fich >> tipo >> colunas;
-//
-//	cout << "LINHAS :" << linhas << endl;
-//	cout << "COLUNAS :" << colunas << endl;
-//
-//	// le o mapa para vetor
-//	for(int i = 0; i < linhas; i++)
-//	{
-//		string aux;
-//		//fich >> aux;
-//
-//
-//		//mapa.push_back(aux);
-//		getline(fich, aux);
-//
-//		vector<char> temp;
-//
-//		for (int j = 0; j < colunas; j++)
-//		{
-//			temp.push_back(aux[j]);
-//		}
-//
-//		mapa.push_back(temp);
-//	
-//	}
-//
-//
-//	// mostra o mapa
-//	for(int i = 0; i < linhas; i++)
-//	{
-//		for(int j = 0 ; j < colunas; j++)
-//			cout << mapa[i][j] << endl;
-//	}
-//
-//	// em caso de erro: valores default
-//	if(fich.fail())
-//	{
-//		linhas = 20;
-//		colunas = 10;
-//	}
-//
-//	// free??
-//	fich.clear();
-//
-//	return mapa;
-//}
+int PRECO_NAVIO = 100;
 
 int Utils::menu_opt(string s)
 {
 	int opt = 0;
 
-	if(s == "exec")
+	if (s == "exec")
 	{
 		opt = 1;
 	}
-	else if(s == "prox")
+	else if (s == "prox")
 	{
 		opt = 2;
 	}
-	else if(s == "compranav")
+	else if (s == "compranav")
 	{
 		opt = 3;
 	}
-	else if(s == "vendenav")
+	else if (s == "vendenav")
 	{
 		opt = 4;
 	}
-	else if(s == "lista")
+	else if (s == "lista")
 	{
 		opt = 5;
 	}
-	else if(s == "compra")
+	else if (s == "compra")
 	{
 		opt = 6;
 	}
-	else if(s == "vende")
+	else if (s == "vende")
 	{
 		opt = 7;
 	}
-	else if(s == "move")
+	else if (s == "move")
 	{
 		opt = 8;
 	}
-	else if(s == "auto")
+	else if (s == "auto")
 	{
 		opt = 9;
 	}
-	else if(s == "stop")
+	else if (s == "stop")
 	{
 		opt = 10;
 	}
-	else if(s == "pirata")
+	else if (s == "pirata")
 	{
 		opt = 11;
 	}
-	else if(s == "evpos")
+	else if (s == "evpos")
 	{
 		opt = 12;
 	}
-	else if(s == "evnav")
+	else if (s == "evnav")
 	{
 		opt = 13;
 	}
-	else if(s == "moedas")
+	else if (s == "moedas")
 	{
 		opt = 14;
 	}
-	else if(s == "vaipara") // atencao que existem dois
+	else if (s == "vaipara") // atencao que existem dois
 	{
 		opt = 15;
 	}
-	else if(s == "comprasold")
+	else if (s == "comprasold")
 	{
 		opt = 16;
 	}
-	else if(s == "saveg")
+	else if (s == "saveg")
 	{
 		opt = 17;
 	}
-	else if(s == "loadg")
+	else if (s == "loadg")
 	{
 		opt = 18;
 	}
-	else if(s == "delg")
+	else if (s == "delg")
 	{
 		opt = 19;
 	}
-	else if(s == "sair")
+	else if (s == "sair")
 	{
 		opt = 20;
 	}
@@ -150,69 +99,111 @@ int Utils::menu_opt(string s)
 	return opt;
 }
 
-int Utils::opt(int opt)
+int Utils::opt(int opt, istringstream *iss, Jogador *jogador)
 {
 	switch (opt)
 	{
 	case 2: // prox
-		cout << "ola! eu sou o prox" << endl;
- 		break;
-	case 3: // compranav
-
+		cout << "prox..." << endl;
 		break;
-	case 4: // vendenav
+	case 3: // compranav <T>
+		char tipo;
+		*iss >> tipo;
 
+		switch (tipo)
+		{
+		case 'V': // veleiro
+			if (/*jogador->getmoedas()*/ 200 > PRECO_NAVIO) {
+				cout << "estou dentro" << endl;
+				Veleiro x('V', PRECO_NAVIO, 200, 0, 40, 0, 0);
+				//jogador->pagar(PRECO_NAVIO);
+				//cout << "Moedas: " << jogador->getmoedas() << endl;
+			}
+			break;
+		case 'G': //galeao
+			if (jogador->getmoedas() > PRECO_NAVIO)
+			{
+				Galeao x('G', PRECO_NAVIO, 400, 0, 70, 0, 0);
+				jogador->pagar(PRECO_NAVIO);
+			}
+			break;
+		case 'E': // escuna
+			if (jogador->getmoedas() > PRECO_NAVIO)
+			{
+				Escuna x('E', PRECO_NAVIO, 100, 0, 20, 0, 0);
+				jogador->pagar(PRECO_NAVIO);
+			}
+			break;
+		case 'F':
+			if (jogador->getmoedas() > PRECO_NAVIO)
+			{
+				Fragata x('E', PRECO_NAVIO, 500, 0, 0, 0, 0);
+				jogador->pagar(PRECO_NAVIO);
+			}
+			break;
+		case 'R': // especial
+			cout << "Especial" << endl;
+			break;
+		default:
+			cout << "[ERRO] Tipo: " << "<" << tipo << "> nao existe \n" << "COMANDO : compranav <V/G/E/F/R> " << endl;
+			cout << "Compra navio do tipo: ";
+			cin >> tipo;
+		}
+		break;
+	case 4: // vendenav <T>
+		cout << "Navio vendido!" << endl;
 		break;
 	case 5: // lista
-
+		cout << "lista!" << endl;
 		break;
-	case 6: // compra
-		cout << "ola eu sou o compra!" << endl;
+	case 6: // compra <N> <M>
+		cout << "compra!" << endl;
 		break;
-	case 7: // vende
-
+	case 7: // vende <N>
+		cout << "vende !" << endl;
 		break;
-	case 8: // move
-
+	case 8: // move <N> <X>
+		cout << "move!" << endl;
 		break;
-	case 9: // auto
-
+	case 9: // auto <N>
+		cout << "auto!" << endl;
 		break;
-	case 10: // stop
-
+	case 10: // stop <N>
+		cout << "stop!" << endl;
 		break;
-	case 11: // pirata
-
+	case 11: // pirata <x> <y> <T>
+		cout << "pirata!" << endl;
 		break;
-	case 12: // evpos
-
+	case 12: // evpos <E> <x> <y>
+		cout << "evpos!" << endl;
 		break;
-	case 13: // evnav
-
+	case 13: // evnav <E> <N>
+		cout << "evnav" << endl;
 		break;
-	case 14: // moedas
-
+	case 14: // moedas <N>
+		cout << "moedas" << endl;
 		break;
-	case 15: // vaipara
-
+	case 15: // vaipara <N> <x> <y>
+		cout << "vaipara" << endl;
 		break;
-	case 16: // vaipara 2
-
+	case 16: // vaipara 2 <N> <P>
+		cout << "vaipara_v2" << endl;
 		break;
-	case 17: // comprasold
-
+	case 17: // comprasold <N> <S>
+		cout << "comprasold" << endl;
 		break;
-	case 18: // saveg
-
+	case 18: // saveg <nome>
+		cout << "saveg" << endl;
 		break;
-	case 19: // loadg
-
+	case 19: // loadg <nome>
+		cout << "loadg" << endl;
 		break;
-	case 20: // delg
-
+	case 20: // delg <nome>
+		cout << "delg" << endl;
 		break;
 	case 21: // sair
-
+		cout << "sair" << endl;
+		exit(0);
 		break;
 
 	}

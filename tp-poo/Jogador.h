@@ -8,11 +8,14 @@ class Navio;
 class Jogador
 {
 	int moedas;
-	vector <Navio> Nv_jogador;
-	vector <Navio> Nv_piratas;
+	vector <Navio*> Navios;
 public:
 	Jogador(int n);
 
+	int getmoedas()const;
+
+	// funcoes set
+	void pagar(int preco);
 	~Jogador();
 };
 

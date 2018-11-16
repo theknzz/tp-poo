@@ -42,10 +42,13 @@
     <ClCompile Include="Frota.cpp">
       <Filter>Source Files\Navios</Filter>
     </ClCompile>
-    <ClCompile Include="Utils.cpp">
+    <ClCompile Include="Jogador.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Jogador.cpp">
+    <ClCompile Include="Tipo_Navio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,19 +59,19 @@
     <ClInclude Include="Comandos.h">
       <Filter>Header Files\consola</Filter>
     </ClInclude>
-    <ClInclude Include="Tipo_Navio.h">
-      <Filter>Header Files\Navios</Filter>
-    </ClInclude>
     <ClInclude Include="Frota.h">
       <Filter>Header Files\Navios</Filter>
     </ClInclude>
     <ClInclude Include="Navio.h">
       <Filter>Header Files\Navios</Filter>
     </ClInclude>
-    <ClInclude Include="Utils.h">
+    <ClInclude Include="Jogador.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Jogador.h">
+    <ClInclude Include="Tipo_Navio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

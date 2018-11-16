@@ -1,11 +1,13 @@
 #include "Comandos.h"
 #include "Utils.h"
+#include "Jogador.h"
 
 #include <fstream>
 #include <iostream>
 
 bool Comandos::menu()const
 {
+	Jogador jogador(100); // jogador iniciado com 100 moedas
 	string comando;
 	cout << "Comando: ";
 	getline(cin, comando);
@@ -13,7 +15,7 @@ bool Comandos::menu()const
 	istringstream iss(comando);
 	iss >> comando;
 
-	int opt = Utils::menu_opt(comando);
+	const auto opt = Utils::menu_opt(comando);
 
 	if (opt == 1) // exec
 	{
@@ -23,20 +25,20 @@ bool Comandos::menu()const
 		ifstream f(nome_fich);
 		while(!f.eof())
 		{
-			cout << "estou dentro do ficheiro" << endl;
+			//cout << "estou dentro do ficheiro" << endl;
 			// le a linha do ficheiro
 			getline(f, cmd);
 			istringstream le(cmd);
 			// le o comando
 			le >> cmd;
-			int op = Utils::menu_opt(cmd);
+			const auto op = Utils::menu_opt(cmd);
 			// procura o comando e executa o
-			Utils::opt(op);
+			Utils::opt(op, &le, &jogador);
 		}
 		f.close();
 	}
 
-	Utils::opt(opt);
+	Utils::opt(opt, &iss, &jogador);
 
 	return false;
 }

@@ -3,6 +3,7 @@
 #include <sstream>
 #include <iostream>
 
+int Navio::conta = 0;
 
 Navio::Navio(char t, int p, int qt, int nr, int c, int x, int y)
 	: tipo(t), preco(p), qt_agua(qt), nr_soldados(nr), capacidade(c), x(x), y(y)

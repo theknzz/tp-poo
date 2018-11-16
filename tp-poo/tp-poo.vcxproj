@@ -121,6 +121,7 @@
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Navio.cpp" />
     <ClCompile Include="Principal.cpp" />
+    <ClCompile Include="Tipo_Navio.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
