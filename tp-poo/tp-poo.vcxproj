@@ -115,20 +115,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Celula.cpp" />
     <ClCompile Include="Comandos.cpp" />
     <ClCompile Include="Consola.cpp" />
     <ClCompile Include="Jogador.cpp" />
+    <ClCompile Include="mapa.cpp" />
     <ClCompile Include="Navio.cpp" />
+    <ClCompile Include="Porto.cpp" />
     <ClCompile Include="Principal.cpp" />
     <ClCompile Include="Tipo_Navio.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Celula.h" />
     <ClInclude Include="Comandos.h" />
     <ClInclude Include="Consola.h" />
     <ClInclude Include="Frota.h" />
     <ClInclude Include="Jogador.h" />
+    <ClInclude Include="mapa.h" />
     <ClInclude Include="Navio.h" />
+    <ClInclude Include="Porto.h" />
     <ClInclude Include="Tipo_Navio.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>

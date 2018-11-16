@@ -48,6 +48,15 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Celula.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mapa.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Porto.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Consola.h">
@@ -70,6 +79,15 @@
     </ClInclude>
     <ClInclude Include="Comandos.h">
       <Filter>Header Files\consola</Filter>
+    </ClInclude>
+    <ClInclude Include="Celula.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mapa.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Porto.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
