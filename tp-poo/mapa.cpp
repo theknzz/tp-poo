@@ -59,22 +59,17 @@ vector<Celula> le_mapa()
 	// DEBUG 
 		cout << "LINHAS: " << linhas << "\nCOLUNAS: " << colunas << endl;
 	
-	for(auto i = 0 ; i < linhas*colunas; i++)
+	for(auto i = 0 ; i < linhas; i++)
 	{
-		fich >> ch;
-
-		auto nl = 0, nc = 0;
-		if (nl < colunas-1) {
-			nl++;
-		}
-		else if (nl == colunas-1)
+		for (auto j = 0; j < colunas; j++)
 		{
-			nl = 0;
-			nc++;
-		}
+			fich >> ch;
 
-		Celula a(nl, nc, ch);
-		cel.push_back(a);
+			Celula a(linhas, colunas, ch);
+			cel.push_back(a);
+			cout << a.getTipo();
+		}
+		cout << "\n";
 	}
 	return cel;
 }
