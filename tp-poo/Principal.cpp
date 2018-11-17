@@ -5,6 +5,8 @@
 #include "Navio.h"
 #include "utils.h"
 #include "Tipo_Navio.h"
+#include "Celula.h"
+#include "mapa.h"
 
 
 int main()
@@ -12,7 +14,10 @@ int main()
 	Comandos c;
 	string fich;
 
-	c.menu();
+	//c.menu();
 
+	vector<Celula> cel;
+	le_mapa(cel);
+	mostra_mapa(20,10,cel);
 	system("pause");
 }
