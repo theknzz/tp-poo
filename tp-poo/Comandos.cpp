@@ -10,9 +10,10 @@ using namespace std;
 
 bool Comandos::menu()const
 {
-	Jogador jogador(200); // jogador iniciado com 100 moedas
+	Jogador jogador(100); // jogador iniciado com 100 moedas
 	string comando;
-	while(comando != "sair")
+
+	while(true)
 		{
 			cout << "Comando: ";
 			getline(cin, comando);
@@ -20,7 +21,16 @@ bool Comandos::menu()const
 			istringstream iss(comando);
 			iss >> comando;
 
+
 			const auto opt = Utils::menu_opt(comando);
+
+			// verificao de inputs
+			if (opt == 0)
+				return false;
+			else if (opt == -1)
+				cout << "COMANDO: " << comando << " nao existe! " << endl;
+			else if (opt == -2)
+				cout << "Insira um comando..." << endl;
 
 			if (opt == 1) // exec
 			{
@@ -32,10 +42,15 @@ bool Comandos::menu()const
 				{
 					// le a linha do ficheiro
 					getline(f, cmd);
+
+					// le palavra até ao espaço e guarda a em 'cmd'
 					istringstream le(cmd);
+
 					// le o comando
 					le >> cmd;
+					
 					const auto op = Utils::menu_opt(cmd);
+					
 					// procura o comando e executa o
 					Utils::opt(op, &le, &jogador);
 				}
@@ -43,6 +58,4 @@ bool Comandos::menu()const
 			}
 			Utils::opt(opt, &iss, &jogador);
 		}
-
-	return false;
 }
