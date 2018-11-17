@@ -36,8 +36,9 @@ void mostra_mapa(int alt, int larg,vector<Celula> mapa) {
 	Consola::setBackgroundColor(Consola::PRETO);
 }
 
-vector<Celula> le_mapa(vector<Celula> cel)
+vector<Celula> le_mapa()
 {
+	vector<Celula> cel;
 	string nome_fich;
 	cout << "Nome do fich: ";
 	cin >> nome_fich;
@@ -54,17 +55,19 @@ vector<Celula> le_mapa(vector<Celula> cel)
 		else
 			iss >> colunas;
 	}
-	cout << "LINHAS: " << linhas << "COLUNAS: " << colunas << endl;
+
+	// DEBUG 
+		cout << "LINHAS: " << linhas << "\nCOLUNAS: " << colunas << endl;
+	
 	for(auto i = 0 ; i < linhas*colunas; i++)
 	{
-
 		fich >> ch;
 
 		auto nl = 0, nc = 0;
-		if (nl < linhas) {
+		if (nl < colunas-1) {
 			nl++;
 		}
-		else if (nl == linhas)
+		else if (nl == colunas-1)
 		{
 			nl = 0;
 			nc++;
