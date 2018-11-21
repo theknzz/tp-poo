@@ -4,10 +4,8 @@
 class Comandos
 {
 public:
-
 	// menu
 	void menu()const;
-
 };
 
 #endif

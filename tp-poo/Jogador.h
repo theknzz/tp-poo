@@ -11,9 +11,9 @@ class Jogador
 {
 	string nome;
 	int moedas;
-	vector <Navio> navios;
+	vector <Navio*> navios;
 public:
-	Jogador(int n,string na);
+	Jogador(int n,string na = "player");
 
 	// funcoes get
 	int getmoedas()const;
@@ -22,7 +22,11 @@ public:
 	// funcoes set
 	void setNome(string na);
 	void pagar(int preco);
-	vector<Navio> addNavio(Navio aux);
+
+	void addNavio(Navio* aux);
+
+	string getAsString()const;
+
 	~Jogador();
 };
 

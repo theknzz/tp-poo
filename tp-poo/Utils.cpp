@@ -3,15 +3,17 @@
 #include <vector>
 #include <iostream>
 #include <cctype>
+
 #include "Utils.h"
-#include "Tipo_Navio.h"
 #include "Jogador.h"
+#include "Navio.h"
 
 using namespace std;
 
 //int ver = 0;
 
 auto const preconavio = 10;
+auto const moedas = 100;
 
 //Utils::Utils(string nome)
 //{
@@ -204,8 +206,10 @@ int Utils::opt(int opt, istringstream *iss, Jogador &jogador)
 	case 2: // prox
 		cout << "prox..." << endl;
 		break;
+	
 	case 3: // compranav <T>
 
+		
 		char tipo;
 		*iss >> tipo;
 		
@@ -216,7 +220,8 @@ int Utils::opt(int opt, istringstream *iss, Jogador &jogador)
 		{
 		case 'V': // veleiro
 			if (jogador.getmoedas() >= preconavio) {
-				Veleiro x('V', preconavio, 200, 0, 40, 0, 0);
+				
+				auto* x = new Navio (tipo, preconavio, 200, 0, 40, 0, 0);
 				jogador.pagar(preconavio);
 				jogador.addNavio(x);
 				cout << "Moedas: " << jogador.getmoedas() << endl;
@@ -228,7 +233,7 @@ int Utils::opt(int opt, istringstream *iss, Jogador &jogador)
 		case 'G': //galeao
 			if (jogador.getmoedas() >= preconavio)
 			{
-				Galeao x('G', preconavio, 400, 0, 70, 0, 0);
+				auto* x = new Navio(tipo, preconavio, 400, 0, 70, 0, 0);
 				jogador.pagar(preconavio);
 				jogador.addNavio(x);
 				cout << "Moedas: " << jogador.getmoedas() << endl;
@@ -240,7 +245,7 @@ int Utils::opt(int opt, istringstream *iss, Jogador &jogador)
 		case 'E': // escuna
 			if (jogador.getmoedas() >= preconavio)
 			{
-				Escuna x('E', preconavio, 100, 0, 20, 0, 0);
+				auto* x = new Navio(tipo, preconavio, 100, 0, 20, 0, 0);
 				jogador.pagar(preconavio);
 				jogador.addNavio(x);
 				cout << "Moedas: " << jogador.getmoedas() << endl;
@@ -249,10 +254,10 @@ int Utils::opt(int opt, istringstream *iss, Jogador &jogador)
 				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getmoedas() << " moedas e sao precisas " << preconavio << " moedas" << endl;
 			break;
 
-		case 'F':
+		case 'F': // fragata
 			if (jogador.getmoedas() >= preconavio)
 			{
-				Fragata x('E', preconavio, 500, 0, 0, 0, 0);
+				auto* x = new Navio(tipo, preconavio, 500, 0, 0, 0, 0);
 				jogador.pagar(preconavio);
 				jogador.addNavio(x);
 				cout << "Moedas: " << jogador.getmoedas() << endl;
@@ -266,11 +271,7 @@ int Utils::opt(int opt, istringstream *iss, Jogador &jogador)
 			break;
 
 		default:
-			do {
 				cout << "[ERRO] Tipo: " << "<" << tipo << "> nao existe \n" << "COMANDO : compranav <V/G/E/F/R> " << endl;
-				cout << "\nCompra navio do tipo: ";
-				cin >> tipo;
-			} while (tipo != 'V' && tipo != 'G' && tipo != 'E' && tipo != 'F' && tipo != 'R');
 			break;
 		}
 		break;
