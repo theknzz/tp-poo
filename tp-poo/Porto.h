@@ -1,9 +1,8 @@
 #pragma once
-class Porto{
+class Porto {
 	char id;
 public:
 	Porto();
 	~Porto();
-	char getID();
+	char getID() const;
 };
-

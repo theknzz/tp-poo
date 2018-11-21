@@ -1,6 +1,7 @@
-#pragma once
+#ifndef __CELULA__
+#define __CELULA__
+
 #include <string>
-#include <iostream>
 #include "Porto.h"
 
 using namespace std;
@@ -8,7 +9,7 @@ using namespace std;
 class Celula
 {
 	int x, y;
-	char tipo;
+	char tipo; 
 	Porto* porto;
 
 public:
@@ -17,8 +18,10 @@ public:
 
 	~Celula();
 
-	char getTipo();
-	Porto* getPorto();
+	char getTipo()const;
+	Porto* getPorto()const;
+
+	void setTipo(char c);
 };
 
-ostream& operator<<(ostream& out, Celula c);
+#endif

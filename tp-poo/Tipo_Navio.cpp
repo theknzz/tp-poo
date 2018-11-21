@@ -5,10 +5,7 @@ Veleiro::Veleiro(char t, int p, int qt, int nr, int c, int x, int y)
 {
 	
 }
-
-Veleiro::~Veleiro()
-{
-}
+Veleiro::~Veleiro(){}
 
 
 Galeao::Galeao(char t, int p, int qt, int nr, int c, int x, int y)
@@ -16,42 +13,27 @@ Galeao::Galeao(char t, int p, int qt, int nr, int c, int x, int y)
 {
 	
 }
-
-Galeao::~Galeao()
-{
-}
+Galeao::~Galeao(){}
 
 Escuna::Escuna(char t, int p, int qt, int nr, int c, int x, int y)
 	:Navio('E', p, 100, nr, c, x, y)
 {
 	
 }
-
-Escuna::~Escuna()
-{
-	
-}
+Escuna::~Escuna(){}
 
 Fragata::Fragata(char t, int p, int qt, int nr, int c, int x, int y)
 	:Navio('F', p, 500, nr, c, x, y)
 {
 	
 }
-
-Fragata::~Fragata()
-{
-	
-}
+Fragata::~Fragata(){}
 
 Especial::Especial(char t, int p, int qt, int nr, int c, int x, int y)
 	:Navio('E', p, qt, nr, c, x, y)
 {
 	
 }
-
-Especial::~Especial()
-{
-	
-}
+Especial::~Especial(){}
 
 

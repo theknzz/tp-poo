@@ -4,20 +4,15 @@ Celula::~Celula()
 {
 }
 
-char Celula::getTipo() {
+char Celula::getTipo()const {
 	return tipo;
 }
 
-Porto* Celula::getPorto() {
+Porto* Celula::getPorto()const {
 	return porto;
 }
 
-ostream& operator<<(ostream& out, Celula c) {
-	if (c.getTipo() == 'M')
-		out << '.';
-	else if (c.getTipo() == 'T')
-		out << '+';
-	else 
-		out << c.getPorto()->getID();
-	return out;
+void Celula::setTipo(char c)
+{
+	tipo = c;
 }

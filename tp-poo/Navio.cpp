@@ -73,5 +73,5 @@ string Navio::getAsString()const
 
 Navio::~Navio()
 {
-	cout << "\n\n\nGAMEOVER" << endl;
+	cout << "GAMEOVER" << endl;
 }

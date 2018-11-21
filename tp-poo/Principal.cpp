@@ -1,17 +1,25 @@
-#include <fstream>
 #include <vector>
 #include "Comandos.h"
 #include "Consola.h"
-#include "Navio.h"
-#include "utils.h"
-#include "Tipo_Navio.h"
-
+#include "mapa.h"
 
 int main()
 {
 	Comandos c;
-	string fich;
 
+		//cout << "######                                        #####                                     " << endl;
+		//cout << "#     #  #####     ##    #    #  ######      #     #    ##    #  #        ####   #####  " << endl;
+		//cout << "#     #  #    #   #  #   #    #  #           #         #  #   #  #       #    #  #    # " << endl;
+		//cout << "######   #    #  #    #  #    #  #####        #####   #    #  #  #       #    #  #    # " << endl;
+		//cout << "#     #  #####   ######  #    #  #                 #  ######  #  #       #    #  #####  " << endl;
+		//cout << "#     #  #   #   #    #   #  #   #           #     #  #    #  #  #       #    #  #   #  " << endl;
+		//cout << "######   #    #  #    #    ##    ######       #####   #    #  #  ######   ####   #    # \n\n" << endl;
+
+	// le_mapa -> vector / bool
+	auto const mapa = le_mapa();
+	mostra_mapa(10, 20, mapa);
+
+	// BUG "GAMEOVER" / "compranav"
 	c.menu();
 
 	system("pause");

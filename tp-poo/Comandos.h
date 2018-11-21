@@ -1,10 +1,13 @@
-#pragma once
-
-using namespace std;
+#ifndef __COMANDOS__
+#define __COMANDOS__
 
 class Comandos
 {
 public:
-	bool menu()const;
+
+	// menu
+	void menu()const;
 
 };
+
+#endif
