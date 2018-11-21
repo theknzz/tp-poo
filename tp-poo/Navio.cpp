@@ -9,7 +9,7 @@ Navio::Navio(char t, int p, int qt, int nr, int c, int x, int y)
 	: tipo(t), preco(p), qt_agua(qt), nr_soldados(nr), capacidade(c), x(x), y(y)
 {
 	id = ++conta;
-	cout << getAsString();
+	//cout << getAsString();
 }
 
 // -------------------------------------
@@ -21,11 +21,6 @@ void Navio::set_tipo(char t)
 
 void Navio::set_preco(int p)
 {
-	if (p < 0) {
-		cout << "\nPreco [" << p << "] invalido ..." << endl;
-		return;
-	}
-
 	this->preco = p;
 }
 
@@ -73,5 +68,5 @@ string Navio::getAsString()const
 
 Navio::~Navio()
 {
-	cout << "GAMEOVER" << endl;
+	 cout << "Destr: " << endl;
 }

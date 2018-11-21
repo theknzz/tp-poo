@@ -70,9 +70,7 @@ vector<Celula> le_mapa()
 
 	cout << "Nome do fich: ";
 	cin >> nome_fich;
-
 	ifstream fich(nome_fich);
-
 
 	for (auto i = 0; i < 2; i++)
 	{
@@ -97,7 +95,6 @@ vector<Celula> le_mapa()
 			cel.push_back(a);
 		}
 	}
-
 	fich.close();
 	return cel;
 }

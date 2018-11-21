@@ -10,13 +10,9 @@ using namespace std;
 
 void Comandos::menu()const
 {
-	string lixo;
-	string na;
-	cout << "\nNome Jogador: ";
-	getline(cin, na);
-
-	Jogador jogador(100,na); // jogador iniciado com 100 moedas
+	Jogador jogador(100); // jogador iniciado com 100 moedas
 	
+	// "flush do cin"
 	cin.ignore(100,'\n');
 
 	while(1)
@@ -31,14 +27,26 @@ void Comandos::menu()const
 			const auto opt = Utils::menu_opt(comando);
 
 			// verificao de inputs
-			if (opt == 0) 
+			if (opt == 0)
+			{
+				string na;
+				cout << "\nNome Jogador: ";
+				getline(cin, na);
+				if(!na.empty())
+					jogador.setNome(na);
+				cout << "O jogador [" << jogador.getNome()<< "] consegui " << " 100 " << "pontos" << endl;
 				return;
+			}
 			else if(opt == -1)
-				cout << "COMANDO: " << comando << " nao existe! " << endl;
+				cout << "\nERRO: O comando " << comando << " nao existe! " << endl;
 			else if (opt == -2)
 				cout << "Insira um comando..." << endl;
 
 			Utils::opt(opt, &iss, jogador);
+			
+			// ver conteudo do vetor
+			//cout << "------------------------------------" << endl;
+			//cout << jogador.getAsString() << endl;
 
 			if (opt == 1) // exec
 			{

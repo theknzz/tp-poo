@@ -18,9 +18,6 @@ int main()
 	// le_mapa -> vector / bool
 	auto const mapa = le_mapa();
 	mostra_mapa(10, 20, mapa);
-
-	// BUG "GAMEOVER" / "compranav"
 	c.menu();
-
 	system("pause");
 }

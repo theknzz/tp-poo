@@ -1,6 +1,6 @@
 #include "Jogador.h"
 #include "Navio.h"
-#include <iostream>
+#include <sstream>
 
 
 Jogador::Jogador(int n,string na)
@@ -13,10 +13,19 @@ int Jogador::getmoedas()const
 	return moedas;
 }
 
-vector<Navio> Jogador::addNavio(Navio aux)
+void Jogador::addNavio(Navio *aux)
 {
 	navios.push_back(aux);
-	return navios;
+}
+
+string Jogador::getAsString() const
+{
+	ostringstream oss;
+
+	for (Navio *p : navios)
+		oss << endl << p->getAsString();
+
+	return oss.str();
 }
 
 
