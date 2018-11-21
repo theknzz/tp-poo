@@ -12,6 +12,6 @@ Porto::~Porto()
 {
 }
 
-char Porto::getID() {
+char Porto::getID() const{
 	return id;
 }

@@ -9,7 +9,99 @@
 
 using namespace std;
 
-int PRECO_NAVIO = 100;
+//int ver = 0;
+
+auto const preconavio = 10;
+
+//Utils::Utils(string nome)
+//{
+//	auto ver = false;
+//	string str, lixo, var;
+//	int linhas, colunas;
+//
+//	ifstream fich(nome);
+//
+//	getline(cin, str);
+//	istringstream iss(str);
+//	iss >> str;
+//
+//	if (str == "linhas")
+//		iss >> linhas;
+//	else
+//		iss >> colunas;
+//
+//	// fseek dos burros
+//	for (auto i = 0; i < linhas; i++)
+//		getline(cin, lixo);
+//
+//	while (ver == false){
+//		getline(cin, var);
+//		istringstream le(var);
+//		le >> var;
+//		ver = le_vars(&le, var);
+//	}
+//}	
+
+//bool Utils::le_vars(istringstream *le,string var)
+//{
+//	if (var == "moedas"){
+//		*le >> atoi(moedas);
+//		ver++;
+//	}
+//	else if (var == "probpirata") {
+//		*le >> probpirata;
+//		ver++;
+//	}
+//	else if (var == "preconavio") {
+//		*le >> preconavio;
+//		ver++;
+//	}
+//	else if (var == "precosoldado") {
+//		*le >> precosoldado;
+//		ver++;
+//	}
+//	else if (var == "precovendpeixe") {
+//		*le >> precovendpeixe;
+//		ver++;
+//	}
+//	else if (var == "precocompmercad") {
+//		*le >> precompmercad;
+//		ver++;
+//	}
+//	else if (var == "precovendmercad") {
+//		*le >> precovendemercad;
+//		ver++;
+//	}
+//	else if (var == "soldadosporto") {
+//		*le >> soldadosporto;
+//		ver++;
+//	}
+//	else if (var == "probevento") {
+//		*le >> probevento;
+//		ver++;
+//	}
+//	else if (var == "probtempestade") {
+//		*le >> probtempestade;
+//		ver++;
+//	}
+//	else if (var == "probsereias") {
+//		*le >> probsereias;
+//		ver++;
+//	}
+//	else if (var == "probcalmaria") {
+//		*le >> probcalmaria;
+//		ver++;
+//	}
+//	else if (var == "probmotim") {
+//		*le >> probmotim;
+//		ver++;
+//	}
+//
+//	if (ver == 13)
+//		return true;
+//	else
+//		return false;
+//}
 
 int Utils::menu_opt(string s)
 {
@@ -105,7 +197,7 @@ int Utils::menu_opt(string s)
 	return opt;
 }
 
-int Utils::opt(int opt, istringstream *iss, Jogador *jogador)
+int Utils::opt(int opt, istringstream *iss, Jogador &jogador)
 {
 	switch (opt)
 	{
@@ -113,45 +205,60 @@ int Utils::opt(int opt, istringstream *iss, Jogador *jogador)
 		cout << "prox..." << endl;
 		break;
 	case 3: // compranav <T>
+
 		char tipo;
 		*iss >> tipo;
-
-		tipo = toupper(tipo); // garantir que nao ha erros
-
+		
+		// garantir que nao ha erros
+		tipo = toupper(tipo); 
+		
 		switch (tipo)
 		{
 		case 'V': // veleiro
-			if (jogador->getmoedas() >= PRECO_NAVIO) {
-				Veleiro x('V', PRECO_NAVIO, 200, 0, 40, 0, 0);
-				jogador->pagar(PRECO_NAVIO);
-				cout << "Moedas: " << jogador->getmoedas() << endl;
+			if (jogador.getmoedas() >= preconavio) {
+				Veleiro x('V', preconavio, 200, 0, 40, 0, 0);
+				jogador.pagar(preconavio);
+				jogador.addNavio(x);
+				cout << "Moedas: " << jogador.getmoedas() << endl;
 			}
 			else
-				cout << "\nMoedas insuficientes...\n" << "O jogador tem " << jogador->getmoedas() << " moedas e sao precisas " << PRECO_NAVIO << " moedas" << endl;
+				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getmoedas() << " moedas e sao precisas " << preconavio << " moedas" << endl;
 			break;
 
 		case 'G': //galeao
-			if (jogador->getmoedas() >= PRECO_NAVIO)
+			if (jogador.getmoedas() >= preconavio)
 			{
-				Galeao x('G', PRECO_NAVIO, 400, 0, 70, 0, 0);
-				jogador->pagar(PRECO_NAVIO);
+				Galeao x('G', preconavio, 400, 0, 70, 0, 0);
+				jogador.pagar(preconavio);
+				jogador.addNavio(x);
+				cout << "Moedas: " << jogador.getmoedas() << endl;
 			}
+			else
+				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getmoedas() << " moedas e sao precisas " << preconavio << " moedas" << endl;
 			break;
 
 		case 'E': // escuna
-			if (jogador->getmoedas() >= PRECO_NAVIO)
+			if (jogador.getmoedas() >= preconavio)
 			{
-				Escuna x('E', PRECO_NAVIO, 100, 0, 20, 0, 0);
-				jogador->pagar(PRECO_NAVIO);
+				Escuna x('E', preconavio, 100, 0, 20, 0, 0);
+				jogador.pagar(preconavio);
+				jogador.addNavio(x);
+				cout << "Moedas: " << jogador.getmoedas() << endl;
 			}
+			else
+				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getmoedas() << " moedas e sao precisas " << preconavio << " moedas" << endl;
 			break;
 
 		case 'F':
-			if (jogador->getmoedas() >= PRECO_NAVIO)
+			if (jogador.getmoedas() >= preconavio)
 			{
-				Fragata x('E', PRECO_NAVIO, 500, 0, 0, 0, 0);
-				jogador->pagar(PRECO_NAVIO);
+				Fragata x('E', preconavio, 500, 0, 0, 0, 0);
+				jogador.pagar(preconavio);
+				jogador.addNavio(x);
+				cout << "Moedas: " << jogador.getmoedas() << endl;
 			}
+			else
+				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getmoedas() << " moedas e sao precisas " << preconavio << " moedas" << endl;
 			break;
 
 		case 'R': // especial
@@ -227,3 +334,5 @@ int Utils::opt(int opt, istringstream *iss, Jogador *jogador)
 	}
 	return opt;
 }
+
+

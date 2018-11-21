@@ -1,6 +1,6 @@
-#pragma once
+#ifndef __CELULA__
+#define __CELULA__
 
-#include <iostream>
 #include <string>
 #include "Porto.h"
 
@@ -24,4 +24,4 @@ public:
 	void setTipo(char c);
 };
 
-ostream& operator<<(ostream& out, Celula c);
+#endif

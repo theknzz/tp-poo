@@ -1,9 +1,10 @@
 #include "Jogador.h"
+#include "Navio.h"
+#include <iostream>
 
 
-
-Jogador::Jogador(int n)
-	:moedas(n)
+Jogador::Jogador(int n,string na)
+	:moedas(n), nome(na)
 {
 }
 
@@ -12,13 +13,21 @@ int Jogador::getmoedas()const
 	return moedas;
 }
 
-bool Jogador::addNavio(const Navio* const navio)
+vector<Navio> Jogador::addNavio(Navio aux)
 {
-	if (navio == nullptr)
-		return false;
+	navios.push_back(aux);
+	return navios;
+}
 
-	//navios.push_back(Navio(navio));
-	
+
+string Jogador::getNome() const
+{
+	return nome;
+}
+
+void Jogador::setNome(string na)
+{
+	nome = na;
 }
 
 void Jogador::pagar(int preco)

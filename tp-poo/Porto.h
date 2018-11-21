@@ -4,5 +4,5 @@ class Porto {
 public:
 	Porto();
 	~Porto();
-	char getID();
+	char getID() const;
 };

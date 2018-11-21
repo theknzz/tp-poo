@@ -16,13 +16,3 @@ void Celula::setTipo(char c)
 {
 	tipo = c;
 }
-
-ostream& operator<<(ostream& out, Celula c) {
-	if (c.getTipo() == 'M')
-		out << '.';
-	else if (c.getTipo() == 'T')
-		out << '+';
-	else 
-		out << c.getPorto()->getID();
-	return out;
-}

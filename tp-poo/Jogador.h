@@ -1,4 +1,6 @@
-#pragma once
+#ifndef __JOGADOR__
+#define __JOGADOR__
+
 #include <vector>
 
 using namespace std;
@@ -7,16 +9,22 @@ class Navio;
 
 class Jogador
 {
+	string nome;
 	int moedas;
-	//vector <Navio> navios;
+	vector <Navio> navios;
 public:
-	Jogador(int n);
+	Jogador(int n,string na);
 
+	// funcoes get
 	int getmoedas()const;
-	bool addNavio(const Navio * const  navio);
+	string getNome()const;
 
 	// funcoes set
+	void setNome(string na);
 	void pagar(int preco);
+	vector<Navio> addNavio(Navio aux);
 	~Jogador();
 };
+
+#endif
 
