@@ -1,5 +1,4 @@
 #include "Comandos.h"
-#include "Jogador.h"
 #include "Utils.h"
 
 #include <fstream>
@@ -8,15 +7,15 @@
 
 using namespace std;
 
-void Comandos::menu()const
-{
-	Jogador jogador(100); // jogador iniciado com 100 moedas
-	
+void Comandos::menu(Jogador& jogador, vector<Celula> mapa) const
+{	
 	// "flush do cin"
 	cin.ignore(100,'\n');
 
 	while(1)
 		{
+			mostra_mapa(10, 20, mapa);
+			mostra_navios(10, 20, jogador);
 			string comando;
 			cout << "Comando: ";
 			getline(cin, comando);

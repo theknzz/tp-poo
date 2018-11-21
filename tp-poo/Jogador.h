@@ -2,6 +2,7 @@
 #define __JOGADOR__
 
 #include <vector>
+#include "Navio.h"
 
 using namespace std;
 
@@ -24,6 +25,8 @@ public:
 	void pagar(int preco);
 
 	void addNavio(Navio* aux);
+	Navio* getNavio(int i) const;
+	int GetnNavios() const;
 
 	string getAsString()const;
 

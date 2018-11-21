@@ -2,10 +2,12 @@
 #include "Comandos.h"
 #include "Consola.h"
 #include "mapa.h"
+#include <iostream>
 
 int main()
 {
 	Comandos c;
+	Jogador jogador(100); // jogador iniciado com 100 moedas
 
 		//cout << "######                                        #####                                     " << endl;
 		//cout << "#     #  #####     ##    #    #  ######      #     #    ##    #  #        ####   #####  " << endl;
@@ -17,7 +19,6 @@ int main()
 
 	// le_mapa -> vector / bool
 	auto const mapa = le_mapa();
-	mostra_mapa(10, 20, mapa);
-	c.menu();
+	c.menu(jogador, mapa);
 	system("pause");
 }

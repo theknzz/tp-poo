@@ -18,6 +18,14 @@ void Jogador::addNavio(Navio *aux)
 	navios.push_back(aux);
 }
 
+Navio* Jogador::getNavio(int i) const {
+	return navios[i];
+}
+
+int Jogador::GetnNavios() const {
+	return navios.size();
+}
+
 string Jogador::getAsString() const
 {
 	ostringstream oss;
