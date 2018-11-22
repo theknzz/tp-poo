@@ -10,7 +10,9 @@ extern int linhas, colunas, moedas, probpirata, preconavio, precosoldado, precov
 int main()
 {
 	Comandos c;
-	Jogador jogador(100);
+	auto const mapa = le_fich();
+	Jogador jogador(moedas);
+
 		//cout << "######                                        #####                                     " << endl;
 		//cout << "#     #  #####     ##    #    #  ######      #     #    ##    #  #        ####   #####  " << endl;
 		//cout << "#     #  #    #   #  #   #    #  #           #         #  #   #  #       #    #  #    # " << endl;
@@ -20,11 +22,10 @@ int main()
 		//cout << "######   #    #  #    #    ##    ######       #####   #    #  #  ######   ####   #    # \n\n" << endl;
 
 	
-	auto const mapa = le_fich();
+
 	mostra_mapa(linhas, colunas, mapa);
 	cout << "Moedas: " << moedas << endl;
 	c.menu(jogador, mapa);
 
 
-	system("pause");
 }

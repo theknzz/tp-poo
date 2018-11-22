@@ -7,6 +7,7 @@
 #include "Utils.h"
 #include "Jogador.h"
 #include "Navio.h"
+#include "consola.h"
 
 using namespace std;
 
@@ -242,5 +243,3 @@ int Utils::opt(int opt, istringstream *iss, Jogador &jogador)
 	}
 	return opt;
 }
-
-

@@ -44,6 +44,8 @@ public:
 	// info
 	string getAsString()const;
 
+	// moves
+
 	~Navio();
 };
 

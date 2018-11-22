@@ -69,8 +69,6 @@ void mostra_mapa(int alt, int larg, vector<Celula> mapa) {
 void mostra_navios(int alt, int larg, const Jogador& jog,vector <Celula> mapa) {
 
 	for (int i = 0; i < jog.GetnNavios(); i++) {
-		Consola::gotoxy(50, 0);
-		cout << "flag: " << i << endl;
 		Consola::gotoxy(jog.getNavio(i)->get_x() * 2, jog.getNavio(i)->get_y() * 2 + 1);
 		
 		if ((jog.getNavio(i)->get_x() + jog.getNavio(i)->get_y()) % 2 == 0) {

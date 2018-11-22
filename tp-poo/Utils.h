@@ -19,6 +19,7 @@ public:
 	// menu
 	static int menu_opt(string s);
 	static int opt(int opt, istringstream *iss, Jogador &jogador);
+
 };
 
 
