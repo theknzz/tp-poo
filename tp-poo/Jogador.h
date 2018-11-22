@@ -14,7 +14,7 @@ class Jogador
 	int moedas;
 	vector <Navio*> navios;
 public:
-	Jogador(int n,string na = "player");
+	Jogador(int n, string na = "player");
 
 	// funcoes get
 	int getmoedas()const;
@@ -34,4 +34,3 @@ public:
 };
 
 #endif
-

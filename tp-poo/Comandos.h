@@ -1,8 +1,8 @@
 #ifndef __COMANDOS__
 #define __COMANDOS__
-
-#include "Jogador.h"
 #include "mapa.h"
+
+class Jogador;
 
 class Comandos
 {

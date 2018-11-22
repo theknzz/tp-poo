@@ -10,100 +10,8 @@
 
 using namespace std;
 
-//int ver = 0;
-
-auto const preconavio = 10;
-auto const moedas = 100;
-
-//Utils::Utils(string nome)
-//{
-//	auto ver = false;
-//	string str, lixo, var;
-//	int linhas, colunas;
-//
-//	ifstream fich(nome);
-//
-//	getline(cin, str);
-//	istringstream iss(str);
-//	iss >> str;
-//
-//	if (str == "linhas")
-//		iss >> linhas;
-//	else
-//		iss >> colunas;
-//
-//	// fseek dos burros
-//	for (auto i = 0; i < linhas; i++)
-//		getline(cin, lixo);
-//
-//	while (ver == false){
-//		getline(cin, var);
-//		istringstream le(var);
-//		le >> var;
-//		ver = le_vars(&le, var);
-//	}
-//}	
-
-//bool Utils::le_vars(istringstream *le,string var)
-//{
-//	if (var == "moedas"){
-//		*le >> atoi(moedas);
-//		ver++;
-//	}
-//	else if (var == "probpirata") {
-//		*le >> probpirata;
-//		ver++;
-//	}
-//	else if (var == "preconavio") {
-//		*le >> preconavio;
-//		ver++;
-//	}
-//	else if (var == "precosoldado") {
-//		*le >> precosoldado;
-//		ver++;
-//	}
-//	else if (var == "precovendpeixe") {
-//		*le >> precovendpeixe;
-//		ver++;
-//	}
-//	else if (var == "precocompmercad") {
-//		*le >> precompmercad;
-//		ver++;
-//	}
-//	else if (var == "precovendmercad") {
-//		*le >> precovendemercad;
-//		ver++;
-//	}
-//	else if (var == "soldadosporto") {
-//		*le >> soldadosporto;
-//		ver++;
-//	}
-//	else if (var == "probevento") {
-//		*le >> probevento;
-//		ver++;
-//	}
-//	else if (var == "probtempestade") {
-//		*le >> probtempestade;
-//		ver++;
-//	}
-//	else if (var == "probsereias") {
-//		*le >> probsereias;
-//		ver++;
-//	}
-//	else if (var == "probcalmaria") {
-//		*le >> probcalmaria;
-//		ver++;
-//	}
-//	else if (var == "probmotim") {
-//		*le >> probmotim;
-//		ver++;
-//	}
-//
-//	if (ver == 13)
-//		return true;
-//	else
-//		return false;
-//}
+// VARIAVEIS GLOBAIS
+extern int linhas, colunas, moedas, probpirata, preconavio, precosoldado, precovendpeixe, precocompmercad, precovendmercad, soldadosporto, probevento, probtempestade, probsereias, probcalmaria, probmotim;
 
 int Utils::menu_opt(string s)
 {
@@ -208,8 +116,7 @@ int Utils::opt(int opt, istringstream *iss, Jogador &jogador)
 		break;
 	
 	case 3: // compranav <T>
-
-		
+				
 		char tipo;
 		*iss >> tipo;
 		
@@ -230,7 +137,7 @@ int Utils::opt(int opt, istringstream *iss, Jogador &jogador)
 				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getmoedas() << " moedas e sao precisas " << preconavio << " moedas" << endl;
 			break;
 
-		case 'G': //galeao
+		case 'G': // galeao
 			if (jogador.getmoedas() >= preconavio)
 			{
 				auto* x = new Navio(tipo, preconavio, 400, 0, 70, 0, 0);

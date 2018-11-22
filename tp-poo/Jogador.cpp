@@ -3,7 +3,7 @@
 #include <sstream>
 
 
-Jogador::Jogador(int n,string na)
+Jogador::Jogador(int n, string na)
 	:moedas(n), nome(na)
 {
 }

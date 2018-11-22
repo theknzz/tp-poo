@@ -1,14 +1,16 @@
-#include <vector>
 #include "Comandos.h"
-#include "Consola.h"
 #include "mapa.h"
+#include "Config.h"
+#include "Jogador.h"
 #include <iostream>
+
+// VARIAVEIS GLOBAIS
+extern int linhas, colunas, moedas, probpirata, preconavio, precosoldado, precovendpeixe, precocompmercad, precovendmercad, soldadosporto, probevento, probtempestade, probsereias, probcalmaria, probmotim;
 
 int main()
 {
 	Comandos c;
-	Jogador jogador(100); // jogador iniciado com 100 moedas
-
+	Jogador jogador(100);
 		//cout << "######                                        #####                                     " << endl;
 		//cout << "#     #  #####     ##    #    #  ######      #     #    ##    #  #        ####   #####  " << endl;
 		//cout << "#     #  #    #   #  #   #    #  #           #         #  #   #  #       #    #  #    # " << endl;
@@ -17,8 +19,12 @@ int main()
 		//cout << "#     #  #   #   #    #   #  #   #           #     #  #    #  #  #       #    #  #   #  " << endl;
 		//cout << "######   #    #  #    #    ##    ######       #####   #    #  #  ######   ####   #    # \n\n" << endl;
 
-	// le_mapa -> vector / bool
-	auto const mapa = le_mapa();
+	
+	auto const mapa = le_fich();
+	mostra_mapa(linhas, colunas, mapa);
+	cout << "Moedas: " << moedas << endl;
 	c.menu(jogador, mapa);
+
+
 	system("pause");
 }
