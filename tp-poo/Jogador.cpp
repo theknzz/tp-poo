@@ -2,7 +2,9 @@
 #include "Navio.h"
 #include <sstream>
 #include <iostream>
+#include <ctime>
 
+extern int linhas, colunas, moedas, probpirata, preconavio, precosoldado, precovendpeixe, precocompmercad, precovendmercad, soldadosporto, probevento, probtempestade, probsereias, probcalmaria, probmotim;
 
 Jogador::Jogador(int n, string na)
 	:moedas(n), nome(na)
@@ -38,6 +40,8 @@ Navio* Jogador::encontraNav(const int num) const
 
 bool Jogador::moveNavio(int i)
 {
+	srand(time(NULL));
+
 	// find Navio de com id = num
 	Navio* ob = encontraNav(i);
 	if (ob == nullptr)
@@ -51,26 +55,42 @@ bool Jogador::moveNavio(int i)
 	const auto randNr_x = rand() % 100;
 	const auto randNr_y = rand() % 100;
 
-	cout << "X: " << randNr_x << endl;
-	cout << "Y: " << randNr_y << endl;
-
 	if (randNr_x <= 49) {
-		ob->set_x(ob->get_x() + 1);
+		cout << "vou para a direita" << endl;
+			// vai para a direita
+			ob->set_x(ob->get_x() + 1);
+		if (ob->get_x() > colunas - 1) {
+			ob->set_x(0);
+		}
 		cout << "x: " << ob->get_x() << endl;
 	}
 	else {
-		ob->set_x(ob->get_x() - 1);
+		cout << "vou para a esquerda" << endl;
+			// vai para a esquerda
+			ob->set_x(ob->get_x() - 1);
+		if (ob->get_x() < 0) {
+			ob->set_x(colunas - 1);
+		}
 		cout << "x: " << ob->get_x() << endl;
 	}
 	if (randNr_y >= 49) {
-		ob->set_y(ob->get_y() + 1);
+		cout << "vou para a baixo" << endl;
+			// vai para baixo
+			ob->set_y(ob->get_y() + 1);
+		if (ob->get_y() > linhas - 1) {
+			ob->set_y(0);
+		}
 		cout << "y: " << ob->get_y() << endl;
 	}
 	else{
-		ob->set_y(ob->get_y() - 1);
+		cout << "vou para a cima" << endl;
+			// vai para cima
+			ob->set_y(ob->get_y() - 1);
+		if (ob->get_y() < 0) {
+			ob->set_y(linhas - 1);
+		}
 		cout << "y: " << ob->get_y() << endl;
 	}
-
 	return true;
 }
 
