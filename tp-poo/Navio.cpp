@@ -2,6 +2,7 @@
 
 #include <sstream>
 #include <iostream>
+#include <cstdlib>
 
 int Navio::conta = 0;
 

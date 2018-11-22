@@ -108,18 +108,22 @@ int Utils::menu_opt(string s)
 	return opt;
 }
 
-int Utils::opt(int opt, istringstream *iss, Jogador &jogador)
+int Utils::opt(int opt, istringstream &iss, Jogador &jogador)
 {
 	switch (opt)
 	{
 	case 2: // prox
 		cout << "prox..." << endl;
+		int id;
+		iss >> id;
+		jogador.moveNavio(id);
+		cout << "Id do navio: " << id << " vai ser movido aleatoriamente..." << endl;
 		break;
 	
 	case 3: // compranav <T>
 				
 		char tipo;
-		*iss >> tipo;
+		iss >> tipo;
 		
 		// garantir que nao ha erros
 		tipo = toupper(tipo); 

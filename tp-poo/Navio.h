@@ -45,6 +45,7 @@ public:
 	string getAsString()const;
 
 	// moves
+	void movimento(int id);
 
 	~Navio();
 };

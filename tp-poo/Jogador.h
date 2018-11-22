@@ -27,6 +27,9 @@ public:
 	void addNavio(Navio* aux);
 	Navio* getNavio(int i) const;
 	int GetnNavios() const;
+	Navio* encontraNav(int num)const;
+
+	bool moveNavio(int i);
 
 	string getAsString()const;
 
