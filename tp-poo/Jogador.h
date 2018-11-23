@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Navio.h"
+#include "Celula.h"
 
 using namespace std;
 
@@ -29,7 +30,7 @@ public:
 	int GetnNavios() const;
 	Navio* encontraNav(int num)const;
 
-	bool moveNavio(int i);
+	bool moveNavio(int i, vector <Celula> mapa);
 
 	string getAsString()const;
 

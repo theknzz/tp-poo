@@ -7,7 +7,7 @@
 using namespace std;
 
 
-void mostra_mapa(int alt, int larg, vector<Celula> mapa) {
+void mostra_mapa(int alt, int larg,vector<Celula> mapa) {
 	int cor;
 	bool claro, tipoCor = 0; //cor guarda a Consola::(static const int) || tipoCor =0 em linhas impares, e =1 em linhas pares
 	int a, l, i, j;

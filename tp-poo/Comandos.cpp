@@ -44,7 +44,7 @@ void Comandos::menu(Jogador& jogador, vector<Celula> mapa) const {
 		else if (opt == -2)
 			cout << "Insira um comando..." << endl;
 
-		Utils::opt(opt, iss, jogador);
+		Utils::opt(opt, iss, jogador, mapa);
 
 		// ver conteudo do vetor
 		//cout << "------------------------------------" << endl;
@@ -75,7 +75,7 @@ void Comandos::menu(Jogador& jogador, vector<Celula> mapa) const {
 				const auto op = Utils::menu_opt(cmd);
 
 				// procura o comando e executa o
-				Utils::opt(op, le, jogador);
+				Utils::opt(op, le, jogador, mapa);
 			}
 
 			f.close();

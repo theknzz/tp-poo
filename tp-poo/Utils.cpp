@@ -108,7 +108,7 @@ int Utils::menu_opt(string s)
 	return opt;
 }
 
-int Utils::opt(int opt, istringstream &iss, Jogador &jogador)
+int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> mapa)
 {
 	switch (opt)
 	{
@@ -116,7 +116,8 @@ int Utils::opt(int opt, istringstream &iss, Jogador &jogador)
 		cout << "prox..." << endl;
 		int id;
 		iss >> id;
-		jogador.moveNavio(id);
+
+		jogador.moveNavio(id, mapa);
 		cout << "Id do navio: " << id << " vai ser movido aleatoriamente..." << endl;
 		break;
 	

@@ -2,7 +2,6 @@
 
 #include <sstream>
 #include <iostream>
-#include <cstdlib>
 
 int Navio::conta = 0;
 
@@ -43,12 +42,12 @@ void Navio::set_capacidade(int c)
 	this->capacidade = c;
 }
 
-void Navio::set_x(int x)
+void Navio::set_x(const int x)
 {
 	this->x = x;
 }
 
-void Navio::set_y(int y)
+void Navio::set_y(const int y)
 {
 	this->y = y;
 }
