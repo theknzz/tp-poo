@@ -9,16 +9,14 @@
 
 using namespace std;
 
-extern int linhas, colunas, moedas, probpirata, preconavio, precosoldado, precovendpeixe, precocompmercad, precovendmercad, soldadosporto, probevento, probtempestade, probsereias, probcalmaria, probmotim;
-
-void Comandos::menu(Jogador& jogador, vector<Celula> mapa) const {
+void Comandos::menu(Jogador& jogador, vector<Celula> mapa, const Config& cfg) const {
 	// "flush do cin"
 	cin.ignore(100, '\n');
 
 	while (1)
 	{
-		mostra_mapa(10, 20, mapa);
-		mostra_navios(10, 20, jogador, mapa);
+		mostra_mapa(cfg, mapa);
+		mostra_navios(cfg, jogador, mapa);
 		string comando;
 		cout << "Comando: ";
 		getline(cin, comando);
@@ -44,7 +42,7 @@ void Comandos::menu(Jogador& jogador, vector<Celula> mapa) const {
 		else if (opt == -2)
 			cout << "Insira um comando..." << endl;
 
-		Utils::opt(opt, iss, jogador, mapa);
+		Utils::opt(opt, iss, jogador, mapa, cfg);
 
 		// ver conteudo do vetor
 		//cout << "------------------------------------" << endl;
@@ -75,7 +73,7 @@ void Comandos::menu(Jogador& jogador, vector<Celula> mapa) const {
 				const auto op = Utils::menu_opt(cmd);
 
 				// procura o comando e executa o
-				Utils::opt(op, le, jogador, mapa);
+				Utils::opt(op, le, jogador, mapa, cfg);
 			}
 
 			f.close();

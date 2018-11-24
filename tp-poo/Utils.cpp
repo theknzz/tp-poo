@@ -11,9 +11,6 @@
 
 using namespace std;
 
-// VARIAVEIS GLOBAIS
-extern int linhas, colunas, moedas, probpirata, preconavio, precosoldado, precovendpeixe, precocompmercad, precovendmercad, soldadosporto, probevento, probtempestade, probsereias, probcalmaria, probmotim;
-
 int Utils::menu_opt(string s)
 {
 	auto opt = -1;
@@ -108,7 +105,7 @@ int Utils::menu_opt(string s)
 	return opt;
 }
 
-int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> mapa)
+int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> mapa, const Config& cfg)
 {
 	switch (opt)
 	{
@@ -117,7 +114,7 @@ int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> ma
 		int id;
 		iss >> id;
 
-		jogador.moveNavio(id, mapa);
+		jogador.moveNavio(id, mapa, cfg);
 		cout << "Id do navio: " << id << " vai ser movido aleatoriamente..." << endl;
 		break;
 	
@@ -132,51 +129,51 @@ int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> ma
 		switch (tipo)
 		{
 		case 'V': // veleiro
-			if (jogador.getmoedas() >= preconavio) {
+			if (jogador.getMoedas() >= cfg.preconavio) {
 				
-				auto* x = new Navio (tipo, preconavio, 200, 0, 40, 0, 0);
-				jogador.pagar(preconavio);
+				auto* x = new Navio (tipo, cfg.preconavio, 200, 0, 40, 0, 0);
+				jogador.pagar(cfg.preconavio);
 				jogador.addNavio(x);
-				cout << "Moedas: " << jogador.getmoedas() << endl;
+				cout << "Moedas: " << jogador.getMoedas() << endl;
 			}
 			else
-				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getmoedas() << " moedas e sao precisas " << preconavio << " moedas" << endl;
+				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
 			break;
 
 		case 'G': // galeao
-			if (jogador.getmoedas() >= preconavio)
+			if (jogador.getMoedas() >= cfg.preconavio)
 			{
-				auto* x = new Navio(tipo, preconavio, 400, 0, 70, 0, 0);
-				jogador.pagar(preconavio);
+				auto* x = new Navio(tipo, cfg.preconavio, 400, 0, 70, 0, 0);
+				jogador.pagar(cfg.preconavio);
 				jogador.addNavio(x);
-				cout << "Moedas: " << jogador.getmoedas() << endl;
+				cout << "Moedas: " << jogador.getMoedas() << endl;
 			}
 			else
-				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getmoedas() << " moedas e sao precisas " << preconavio << " moedas" << endl;
+				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
 			break;
 
 		case 'E': // escuna
-			if (jogador.getmoedas() >= preconavio)
+			if (jogador.getMoedas() >= cfg.preconavio)
 			{
-				auto* x = new Navio(tipo, preconavio, 100, 0, 20, 0, 0);
-				jogador.pagar(preconavio);
+				auto* x = new Navio(tipo, cfg.preconavio, 100, 0, 20, 0, 0);
+				jogador.pagar(cfg.preconavio);
 				jogador.addNavio(x);
-				cout << "Moedas: " << jogador.getmoedas() << endl;
+				cout << "Moedas: " << jogador.getMoedas() << endl;
 			}
 			else
-				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getmoedas() << " moedas e sao precisas " << preconavio << " moedas" << endl;
+				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
 			break;
 
 		case 'F': // fragata
-			if (jogador.getmoedas() >= preconavio)
+			if (jogador.getMoedas() >= cfg.preconavio)
 			{
-				auto* x = new Navio(tipo, preconavio, 500, 0, 0, 0, 0);
-				jogador.pagar(preconavio);
+				auto* x = new Navio(tipo, cfg.preconavio, 500, 0, 0, 0, 0);
+				jogador.pagar(cfg.preconavio);
 				jogador.addNavio(x);
-				cout << "Moedas: " << jogador.getmoedas() << endl;
+				cout << "Moedas: " << jogador.getMoedas() << endl;
 			}
 			else
-				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getmoedas() << " moedas e sao precisas " << preconavio << " moedas" << endl;
+				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
 			break;
 
 		case 'R': // especial

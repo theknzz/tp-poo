@@ -4,6 +4,7 @@
 #include <vector>
 #include "Navio.h"
 #include "Celula.h"
+#include "Config.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ public:
 	Jogador(int n, string na = "player");
 
 	// funcoes get
-	int getmoedas()const;
+	int getMoedas()const;
 	string getNome()const;
 
 	// funcoes set
@@ -30,7 +31,7 @@ public:
 	int GetnNavios() const;
 	Navio* encontraNav(int num)const;
 
-	bool moveNavio(int i, vector <Celula> mapa);
+	bool moveNavio(int i, vector <Celula> mapa, const Config& cfg);
 
 	string getAsString()const;
 

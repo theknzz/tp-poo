@@ -4,14 +4,13 @@
 #include <iostream>
 #include <ctime>
 
-extern int linhas, colunas, moedas, probpirata, preconavio, precosoldado, precovendpeixe, precocompmercad, precovendmercad, soldadosporto, probevento, probtempestade, probsereias, probcalmaria, probmotim;
 
 Jogador::Jogador(int n, string na)
 	:moedas(n), nome(na)
 {
 }
 
-int Jogador::getmoedas()const
+int Jogador::getMoedas()const
 {
 	return moedas;
 }
@@ -26,7 +25,7 @@ Navio* Jogador::getNavio(int i) const {
 }
 
 int Jogador::GetnNavios() const {
-	return navios.size();
+	return (int)navios.size();
 }
 
 Navio* Jogador::encontraNav(const int num) const
@@ -38,7 +37,7 @@ Navio* Jogador::encontraNav(const int num) const
 	return nullptr;
 }
 
-bool Jogador::moveNavio(const int id, vector <Celula> mapa) // considerando que o movimento de todos os navios é de uma celula
+bool Jogador::moveNavio(const int id, vector <Celula> mapa, const Config& cfg) // considerando que o movimento de todos os navios é de uma celula
 {
 	srand(time(NULL));
 
@@ -61,7 +60,7 @@ bool Jogador::moveNavio(const int id, vector <Celula> mapa) // considerando que 
 			// vai para a direita
 			ob->set_x(ob->get_x() + 1);
 			
-			if (ob->get_x() > colunas - 1) { // se a proxima celula ultrapassar os limites à direita
+			if (ob->get_x() > cfg.colunas - 1) { // se a proxima celula ultrapassar os limites à direita
 				cout << "eu nao devia estar aqui!" << endl;
 				ob->set_x(0);	// ele aparece do lado esquerdo
 			}
@@ -73,7 +72,7 @@ bool Jogador::moveNavio(const int id, vector <Celula> mapa) // considerando que 
 			// vai para a esquerda
 			ob->set_x(ob->get_x() - 1);
 		if (ob->get_x() < 0) {
-			ob->set_x(colunas - 1);
+			ob->set_x(cfg.colunas - 1);
 		}
 
 		cout << "x: " << ob->get_x() << endl;
@@ -82,7 +81,7 @@ bool Jogador::moveNavio(const int id, vector <Celula> mapa) // considerando que 
 		cout << "baixo" << endl;
 			// vai para baixo
 			ob->set_y(ob->get_y() + 1);
-		if (ob->get_y() > linhas - 1) {
+		if (ob->get_y() > cfg.linhas - 1) {
 			ob->set_y(0);
 		}
 
@@ -93,7 +92,7 @@ bool Jogador::moveNavio(const int id, vector <Celula> mapa) // considerando que 
 			// vai para cima
 			ob->set_y(ob->get_y() - 1);
 		if (ob->get_y() < 0) {
-			ob->set_y(linhas - 1);
+			ob->set_y(cfg.linhas - 1);
 		}
 
 		cout << "y: " << ob->get_y() << endl;
@@ -144,7 +143,7 @@ bool Jogador::moveNavio(const int id, vector <Celula> mapa) // considerando que 
 	}
 
 	// se a nova celula for terra -> fica na posicao antiga 'antX/Y'
-	if(mapa[colunas*ob->get_y() + ob->get_x()].getTipo() == '+')
+	if(mapa[cfg.colunas*ob->get_y() + ob->get_x()].getTipo() == '+')
 	{
 		cout << "deixei de ser um barco todo o terreno!" << endl;
 		ob->set_x(antX);

@@ -5,7 +5,7 @@
 #include "Celula.h"
 #include "Jogador.h"
 
-void mostra_mapa(int alt, int larg, vector<Celula>); // alt = NUMERO DE LINHAS DO MAPA ... larg = NUMERO DE COLUNAS DO MAPA
-void mostra_navios(int alt, int larg, const Jogador& jog, vector <Celula> mapa);
+void mostra_mapa(const Config& cfg, vector<Celula>); // alt = NUMERO DE LINHAS DO MAPA ... larg = NUMERO DE COLUNAS DO MAPA
+void mostra_navios(const Config& cfg, const Jogador& jog, vector <Celula> mapa);
 
 #endif

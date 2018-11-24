@@ -4,14 +4,13 @@
 #include "Jogador.h"
 #include <iostream>
 
-// VARIAVEIS GLOBAIS
-extern int linhas, colunas, moedas, probpirata, preconavio, precosoldado, precovendpeixe, precocompmercad, precovendmercad, soldadosporto, probevento, probtempestade, probsereias, probcalmaria, probmotim;
-
 int main()
 {
+	Config cfg;
 	Comandos c;
-	auto const mapa = le_fich();
-	Jogador jogador(moedas);
+	auto const mapa = le_fich(cfg);
+	Jogador jogador(cfg.moedas);
+	
 
 		//cout << "######                                        #####                                     " << endl;
 		//cout << "#     #  #####     ##    #    #  ######      #     #    ##    #  #        ####   #####  " << endl;
@@ -21,11 +20,10 @@ int main()
 		//cout << "#     #  #   #   #    #   #  #   #           #     #  #    #  #  #       #    #  #   #  " << endl;
 		//cout << "######   #    #  #    #    ##    ######       #####   #    #  #  ######   ####   #    # \n\n" << endl;
 
-	
 
-	mostra_mapa(linhas, colunas, mapa);
-	cout << "Moedas: " << moedas << endl;
-	c.menu(jogador, mapa);
 
+	mostra_mapa(cfg, mapa);
+	cout << "Moedas: " << jogador.getMoedas() << endl;
+	c.menu(jogador, mapa, cfg);
 
 }

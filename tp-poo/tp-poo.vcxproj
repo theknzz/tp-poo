@@ -85,6 +85,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -117,6 +120,7 @@
   <ItemGroup>
     <ClCompile Include="Celula.cpp" />
     <ClCompile Include="Comandos.cpp" />
+    <ClCompile Include="Config.cpp" />
     <ClCompile Include="Consola.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="mapa.cpp" />
@@ -129,6 +133,7 @@
   <ItemGroup>
     <ClInclude Include="Celula.h" />
     <ClInclude Include="Comandos.h" />
+    <ClInclude Include="Config.h" />
     <ClInclude Include="Consola.h" />
     <ClInclude Include="Frota.h" />
     <ClInclude Include="Jogador.h" />

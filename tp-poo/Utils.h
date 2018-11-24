@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <sstream>
+#include "Config.h"
 
 class Jogador;
 class Celula;
@@ -14,12 +15,9 @@ class Utils
 public:
 	// Utils(string nome);
 
-	// config
-	bool le_vars(istringstream *le, string nome);
-
 	// menu
 	static int menu_opt(string s);
-	static int opt(int opt, istringstream &iss, Jogador &jogador,const vector <Celula> mapa);
+	static int opt(int opt, istringstream &iss, Jogador &jogador,const vector <Celula> mapa, const Config& cfg);
 
 };
 

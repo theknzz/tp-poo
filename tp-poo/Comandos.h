@@ -8,7 +8,7 @@ class Comandos
 {
 public:
 	// menu
-	void menu(Jogador & jogador, vector<Celula> mapa) const;
+	void menu(Jogador & jogador, vector<Celula> mapa, const Config& cfg) const;
 
 };
 
