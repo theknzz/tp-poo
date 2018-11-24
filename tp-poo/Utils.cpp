@@ -139,7 +139,7 @@ int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> ma
 		case 'V': // veleiro
 			if (jogador.getMoedas() >= cfg.preconavio) {
 
-				auto* x = new Navio(tipo, cfg.preconavio, 200, 0, 40, 0, 0);
+				auto* x = new Navio(tipo, cfg.preconavio, 200, 0, 40, jogador.getPrin_x(), jogador.getPrin_y());
 				jogador.pagar(cfg.preconavio);
 				jogador.addNavio(x);
 				cout << "Moedas: " << jogador.getMoedas() << endl;
@@ -151,7 +151,7 @@ int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> ma
 		case 'G': // galeao
 			if (jogador.getMoedas() >= cfg.preconavio)
 			{
-				auto* x = new Navio(tipo, cfg.preconavio, 400, 0, 70, 0, 0);
+				auto* x = new Navio(tipo, cfg.preconavio, 400, 0, 70, jogador.getPrin_x(), jogador.getPrin_y());
 				jogador.pagar(cfg.preconavio);
 				jogador.addNavio(x);
 				cout << "Moedas: " << jogador.getMoedas() << endl;
@@ -163,7 +163,7 @@ int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> ma
 		case 'E': // escuna
 			if (jogador.getMoedas() >= cfg.preconavio)
 			{
-				auto* x = new Navio(tipo, cfg.preconavio, 100, 0, 20, 0, 0);
+				auto* x = new Navio(tipo, cfg.preconavio, 100, 0, 20, jogador.getPrin_x(), jogador.getPrin_y());
 				jogador.pagar(cfg.preconavio);
 				jogador.addNavio(x);
 				cout << "Moedas: " << jogador.getMoedas() << endl;
@@ -175,7 +175,7 @@ int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> ma
 		case 'F': // fragata
 			if (jogador.getMoedas() >= cfg.preconavio)
 			{
-				auto* x = new Navio(tipo, cfg.preconavio, 500, 0, 0, 0, 0);
+				auto* x = new Navio(tipo, cfg.preconavio, 500, 0, 0, jogador.getPrin_x(), jogador.getPrin_y());
 				jogador.pagar(cfg.preconavio);
 				jogador.addNavio(x);
 				cout << "Moedas: " << jogador.getMoedas() << endl;

@@ -41,8 +41,12 @@ public:
 	string getAsString()const;
 
 	void addPorto(Porto *ob);
-	int getPrin_x() const { return portos[0]->get_x(); }
-	int getPrin_y() const { return portos[0]->get_y(); }
+
+	void mostraPortos() const;
+
+	int getPrin_x() const;
+	int getPrin_y() const;
+	char getId() const;
 	// void setPrincipal();
 	~Jogador();
 };

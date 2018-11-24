@@ -82,6 +82,7 @@ void mostra_navios(const Config& cfg, const Jogador& jog, vector <Celula> mapa) 
 			else
 				Consola::setBackgroundColor(Consola::VERMELHO_CLARO);
 		}
+		Consola::setBackgroundColor(Consola::AMARELO_CLARO);
 		cout << jog.getNavio(i)->get_id();
 	}
 	Consola::gotoxy(0, cfg.linhas * 2);

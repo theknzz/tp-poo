@@ -98,22 +98,21 @@ vector<Celula> le_fich(Config& cfg, Jogador & jogador)
 
 			if (ch != '.' && ch != '+')
 			{
-				Porto * pt;
-				auto ver = isupper(ch);
+				const auto ver = isupper(ch);
 				if (ver == 0)
 				{
-					Porto x(ch,j,i);
-					pt = &x;
+					Porto * pt = new Porto(ch, j, i);
 					jogador.addPorto(pt);
+					Celula a(j, i, ch, pt);
+					cel.push_back(a);
 				}
 				else
 				{
-					Porto x(ch,j,i);
-					pt = &x;
+					Porto * pt = new Porto(ch, j, i);
 					jogador.addPorto(pt);
+					Celula a(j, i, ch, pt);
+					cel.push_back(a);
 				}
-				Celula a(j, i, ch, pt);
-				cel.push_back(a);
 			}
 			else
 			{

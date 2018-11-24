@@ -1,10 +1,11 @@
 #include "Jogador.h"
 #include "Navio.h"
+#include "Config.h"
 #include <sstream>
 #include <iostream>
 #include <ctime>
+#include <cstdlib>
 #include <algorithm>
-#include "Config.h"
 
 Jogador::Jogador(string na)
 	:nome(na)
@@ -233,10 +234,51 @@ void Jogador::setMoedas(int n)
 }
 
 
-void Jogador::addPorto(Porto * ob)
+void Jogador::addPorto(Porto *ob)
 {
+	//sort(portos.begin(), portos.end());
 	portos.push_back(ob);
-	sort(portos.begin(), portos.end());
+}
+
+void Jogador::mostraPortos() const
+{
+	for(unsigned i = 0; i < portos.size() ; i++)
+	{
+		cout << "RIME FODIME" <<"ID: " << portos[i]->getID() << endl;
+	}
+}
+
+int Jogador::getPrin_x() const
+{
+	for(auto i = 0; i < portos.size(); i++)
+	{
+		if (portos[i]->getID() == 'A')
+			return portos[i]->get_x();
+	}
+
+	return portos[0]->get_x();
+}
+
+int Jogador::getPrin_y() const
+{
+	for (auto i = 0; i < portos.size(); i++)
+	{
+		if (portos[i]->getID() == 'A')
+			return portos[i]->get_y();
+	}
+
+	return portos[0]->get_y();
+}
+
+char Jogador::getId() const
+{
+	for (auto i = 0; i < portos.size(); i++)
+	{
+		if (portos[i]->getID() == 'A')
+			return portos[i]->get_x();
+	}
+
+	return portos[0]->getID();
 }
 
 //void Jogador::setPrincipal()
@@ -246,4 +288,9 @@ void Jogador::addPorto(Porto * ob)
 
 Jogador::~Jogador()
 {
+	for(auto i = 0; i < portos.size(); i++)
+	{
+		cout << "adeus porto" << endl;
+		delete portos[i];
+	}
 }

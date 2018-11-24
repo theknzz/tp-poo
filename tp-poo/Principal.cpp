@@ -20,13 +20,7 @@ int main()
 
 	cout << "Mapas Disponiveis: \n" << "\t > mapa.txt\n" << "\t > cercado.txt\n" << "\t > mar.txt\n" << endl;
 	Jogador jogador;
-	auto mapa = le_fich(cfg, jogador);
-	//cout << "Coords: (" << jogador.getPrin_x() << ";" << jogador.getPrin_y() << ")" << endl;
-
-	mostra_mapa(cfg, mapa);
-	//cout << "Moedas: " << jogador.getMoedas() << endl;
+	auto const mapa = le_fich(cfg, jogador);
 	c.menu(jogador, mapa, cfg);
 
 }
-
-
