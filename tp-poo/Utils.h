@@ -17,9 +17,6 @@ public:
 
 	// menu
 	static int menu_opt(string s);
-	static int opt(int opt, istringstream &iss, Jogador &jogador,const vector <Celula> mapa, const Config& cfg);
+	static int opt(int opt, istringstream &iss, Jogador &jogador, const vector <Celula> mapa, const Config& cfg);
 
 };
-
-
-

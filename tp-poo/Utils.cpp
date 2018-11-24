@@ -99,6 +99,8 @@ int Utils::menu_opt(string s)
 	{
 		opt = 0;
 	}
+	else if (s == "help")
+		opt = 21;
 	else if (s.empty())
 		opt = -2;
 
@@ -109,29 +111,35 @@ int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> ma
 {
 	switch (opt)
 	{
+		Navio* ver;
 	case 2: // prox
-		cout << "prox..." << endl;
 		int id;
 		iss >> id;
-
-		jogador.moveNavio(id, mapa, cfg);
-		cout << "Id do navio: " << id << " vai ser movido aleatoriamente..." << endl;
+		ver = jogador.encontraNav(id);
+		if (ver == nullptr)
+		{
+			cout << "O barco com id [" << id << "] nao existe ..." << endl;
+		}
+		else
+		{
+			jogador.moveNavio(id, mapa, cfg);
+		}
 		break;
-	
+
 	case 3: // compranav <T>
-				
+
 		char tipo;
 		iss >> tipo;
-		
+
 		// garantir que nao ha erros
-		tipo = toupper(tipo); 
-		
+		tipo = toupper(tipo);
+
 		switch (tipo)
 		{
 		case 'V': // veleiro
 			if (jogador.getMoedas() >= cfg.preconavio) {
-				
-				auto* x = new Navio (tipo, cfg.preconavio, 200, 0, 40, 0, 0);
+
+				auto* x = new Navio(tipo, cfg.preconavio, 200, 0, 40, 0, 0);
 				jogador.pagar(cfg.preconavio);
 				jogador.addNavio(x);
 				cout << "Moedas: " << jogador.getMoedas() << endl;
@@ -181,7 +189,7 @@ int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> ma
 			break;
 
 		default:
-				cout << "[ERRO] Tipo: " << "<" << tipo << "> nao existe \n" << "COMANDO : compranav <V/G/E/F/R> " << endl;
+			cout << "[ERRO] Tipo: " << "<" << tipo << "> nao existe \n" << "COMANDO : compranav <V/G/E/F/R> " << endl;
 			break;
 		}
 		break;
@@ -236,6 +244,32 @@ int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> ma
 		break;
 	case 20: // delg <nome>
 		cout << "delg" << endl;
+		break;
+	case 21: // help
+		cout << "Comando: " << endl;
+		cout << " > exec <nomeFicheiro>" << "\toperacional" << endl;
+		cout << " > prox" << "\toperacional" << endl;
+		cout << " > compranav <T>" << "\toperacional" << endl;
+		Consola::setTextColor(8);
+		cout << " > lista" << endl;
+		cout << " > vendenav <N>" << endl;
+		cout << " > lista" << endl;
+		cout << " > vende" << endl;
+		cout << " > move <N> <X>" << endl;
+		cout << " > auto <N>" << endl;
+		cout << " > stop <N>" << endl;
+		cout << " > pirata <x> <y> <t>" << endl;
+		cout << " > evpos <E> <x> <y>" << endl;
+		cout << " > evnav <E> <N>" << endl;
+		cout << " > moedas <N>" << " [DEBUG]" << endl;
+		cout << " > vaipara <N> <x> <y>" << endl;
+		cout << " > vaipara <N> <P>" << endl;
+		cout << " > comprasold <N> <S>" << endl;
+		cout << " > saveg <nome>" << endl;
+		cout << " > loadg <nome>" << endl;
+		cout << " > delg <nome>" << endl;
+		Consola::setTextColor(7);
+		cout << " > sair" << endl;
 		break;
 	case 0: // sair
 		cout << "SHUTING DOWN!" << endl;

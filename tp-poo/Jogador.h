@@ -9,12 +9,16 @@
 using namespace std;
 
 class Navio;
+class Porto;
 
 class Jogador
 {
 	string nome;
 	int moedas;
 	vector <Navio*> navios;
+	vector <Porto*> portos;
+	vector <Porto*> portosInimigos;
+	//Porto* portoPrincipal;
 public:
 	Jogador(int n, string na = "player");
 
@@ -35,6 +39,10 @@ public:
 
 	string getAsString()const;
 
+	void addPorto(Porto *ob);
+	int getPrin_x() const { return portos[0]->get_x(); }
+	int getPrin_y() const { return portos[0]->get_y(); }
+	// void setPrincipal();
 	~Jogador();
 };
 

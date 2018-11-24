@@ -4,9 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include "Jogador.h"
 
-
-// DEFINICAO DAS VARIAVEIS GLOBAIS
 
 void var(string var, istringstream &le, Config& cfg)
 {
@@ -67,7 +66,7 @@ void var(string var, istringstream &le, Config& cfg)
 }
 
 
-vector<Celula> le_fich(Config& cfg)
+vector<Celula> le_fich(Config& cfg, Jogador & jogador)
 {
 	char ch;
 	string str;
@@ -96,14 +95,35 @@ vector<Celula> le_fich(Config& cfg)
 		for (auto j = 0; j < cfg.colunas; j++)
 		{
 			fich >> ch;
-			Celula a(j, i, ch);
-			cel.push_back(a);
+
+			if (ch != '.' && ch != '+')
+			{
+				Porto * pt;
+				auto ver = isupper(ch);
+				if (ver == 0)
+				{
+					Porto x(ch,j,i);
+					pt = &x;
+					jogador.addPorto(pt);
+				}
+				else
+				{
+					Porto x(ch,j,i);
+					pt = &x;
+					jogador.addPorto(pt);
+				}
+			}
+			else
+			{
+				Celula a(j, i, ch);
+				cel.push_back(a);
+			}
 		}
 	}
 
 	// apanhar o enter
 	getline(fich, str);
-	
+
 	while (!fich.eof())
 	{
 		getline(fich, str);

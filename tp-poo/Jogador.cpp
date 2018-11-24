@@ -3,7 +3,7 @@
 #include <sstream>
 #include <iostream>
 #include <ctime>
-
+#include <algorithm>
 
 Jogador::Jogador(int n, string na)
 	:moedas(n), nome(na)
@@ -48,104 +48,151 @@ bool Jogador::moveNavio(const int id, vector <Celula> mapa, const Config& cfg) /
 	{
 		return false;
 	}
-	
+
 	const auto antX = ob->get_x();
 	const auto antY = ob->get_y();
 
 	const auto randNr = rand() % 101;
-	cout << "random number: " << randNr << endl;
+
+	// DEBUG: cout << "random number: " << randNr << endl;
 
 	if (randNr <= 12.5 && randNr >= 0) {
-		cout << "direita" << endl;
-			// vai para a direita
-			ob->set_x(ob->get_x() + 1);
-			
-			if (ob->get_x() > cfg.colunas - 1) { // se a proxima celula ultrapassar os limites à direita
-				cout << "eu nao devia estar aqui!" << endl;
-				ob->set_x(0);	// ele aparece do lado esquerdo
-			}
+		//DEBUG: 		cout << "direita" << endl;
+		// vai para a direita
+		ob->set_x(ob->get_x() + 1);
 
-		cout << "x: " << ob->get_x() << endl;
+		// verificação out of world	
+		if (ob->get_x() > cfg.colunas - 1) { // se a proxima celula ultrapassar os limites à direita
+			ob->set_x(0);	// ele aparece do lado esquerdo
+		}
+		cout << "Coords: (" << ob->get_x() << ";" << ob->get_y() << ")" << endl;
 	}
-	else if(randNr <= 25 && randNr > 12.5) {
-		cout << "esquerda" << endl;
-			// vai para a esquerda
-			ob->set_x(ob->get_x() - 1);
+	else if (randNr <= 25 && randNr > 12.5) {
+		//DEBUG: 		cout << "esquerda" << endl;
+		// vai para a esquerda
+		ob->set_x(ob->get_x() - 1);
+
+		// verificação out of world		
 		if (ob->get_x() < 0) {
 			ob->set_x(cfg.colunas - 1);
 		}
-
-		cout << "x: " << ob->get_x() << endl;
+		cout << "Coords: (" << ob->get_x() << ";" << ob->get_y() << ")" << endl;
 	}
 	else if (randNr <= 37.5 && randNr > 25) {
-		cout << "baixo" << endl;
-			// vai para baixo
-			ob->set_y(ob->get_y() + 1);
+		//DEBUG: 		cout << "baixo" << endl;
+		// vai para baixo
+		ob->set_y(ob->get_y() + 1);
+
+		// verificação out of world	
 		if (ob->get_y() > cfg.linhas - 1) {
 			ob->set_y(0);
 		}
-
-		cout << "y: " << ob->get_y() << endl;
+		cout << "Coords: (" << ob->get_x() << ";" << ob->get_y() << ")" << endl;
 	}
-	else if (randNr <= 50 && randNr > 37.5){
-		cout << "cima" << endl;
-			// vai para cima
-			ob->set_y(ob->get_y() - 1);
+	else if (randNr <= 50 && randNr > 37.5) {
+		//DEBUG: 		cout << "cima" << endl;
+		// vai para cima
+		ob->set_y(ob->get_y() - 1);
+
+		// verificação out of world	
 		if (ob->get_y() < 0) {
 			ob->set_y(cfg.linhas - 1);
 		}
-
-		cout << "y: " << ob->get_y() << endl;
+		cout << "Coords: (" << ob->get_x() << ";" << ob->get_y() << ")" << endl;
 	}
 	else if (randNr <= 62.5 && randNr > 50)
 	{
-		cout << "noroeste" << endl;
+		//DEBUG: 		cout << "NO" << endl;
 		// vai para NO (noroeste)
 		ob->set_x(ob->get_x() - 1);
 		ob->set_y(ob->get_y() - 1);
 
+		// verificação out of world
+		if (ob->get_y() < 0 && ob->get_x() < 0)
+		{
+			ob->set_y(cfg.linhas - 1);
+			ob->set_x(cfg.colunas - 1);
+		}
+		else if (ob->get_y() > 0 && ob->get_x() < 0)
+		{
+			ob->set_x(cfg.colunas - 1);
+			ob->set_y(ob->get_y());
+		}
+		else if (ob->get_y() < 0 && ob->get_x() > 0)
+			ob->set_y(cfg.linhas - 1);
 
-		//if(ob->get_y() < 0 && ob->get_x < 0)
-		//{
-		//	ob->set_y(linhas - 1);
-		//	ob->set_x(colunas - 1);
-		//}
-		cout << "x: " << ob->get_x() << endl;
-		cout << "y: " << ob->get_y() << endl;
+		cout << "Coords: (" << ob->get_x() << ";" << ob->get_y() << ")" << endl;
 	}
+
 	else if (randNr <= 75 && randNr > 62.5)
 	{
-		cout << "nordeste" << endl;
+		//DEBUG:cout << "NE" << endl;
 		// vai para NE (nordeste)
 		ob->set_x(ob->get_x() + 1);
-		ob->set_x(ob->get_x() - 1);
+		ob->set_y(ob->get_y() - 1);
+
+		// verificação out of world
+		if (ob->get_y() < 0 && ob->get_x() > cfg.colunas - 1)
+		{
+			ob->set_y(cfg.linhas - 1);
+			ob->set_x(0);
+		}
+		else if (ob->get_x() > cfg.colunas - 1 && ob->get_y() > 0 && cfg.linhas - 1 > ob->get_y())
+		{
+			ob->set_x(0);
+		}
+		else if (ob->get_y() < 0 && ob->get_x() > 0)
+			ob->set_y(cfg.linhas - 1);
+
+		cout << "Coords: (" << ob->get_x() << ";" << ob->get_y() << ")" << endl;
 	}
 	else if (randNr <= 87.5 && randNr > 75)
 	{
-		cout << "sudoeste" << endl;
+		//DEBUG: cout << "SO" << endl;
 		// vai para SO (sudoeste)
 		ob->set_x(ob->get_x() - 1);
 		ob->set_y(ob->get_y() + 1);
 
-		cout << "x: " << ob->get_x() << endl;
-		cout << "y: " << ob->get_y() << endl;
+		// verificação out of world
+		if (ob->get_y() > cfg.linhas - 1 && ob->get_x() < 0)
+		{
+			ob->set_x(cfg.colunas - 1);
+			ob->set_y(0);
+		}
+		else if (ob->get_x() < 0 && ob->get_y() > 0 && cfg.linhas - 1 > ob->get_y())
+			ob->set_x(cfg.colunas - 1);
+		else if (ob->get_y() > cfg.linhas - 1 && ob->get_x() > 0)
+			ob->set_y(0);
+
+		cout << "Coords: (" << ob->get_x() << ";" << ob->get_y() << ")" << endl;
 
 	}
 	else if (randNr <= 100 && randNr > 87.5)
 	{
-		cout << "sudeste" << endl;
+		//DEBUG: 
+		cout << "SE" << endl;
 		// vai para SE (sudeste)
 		ob->set_x(ob->get_x() + 1);
 		ob->set_y(ob->get_y() + 1);
 
-		cout << "x: " << ob->get_x() << endl;
-		cout << "y: " << ob->get_y() << endl;
+		// verificação out of world
+		if (ob->get_x() > cfg.colunas - 1 && ob->get_y() > cfg.linhas - 1)
+		{
+			ob->set_x(0);
+			ob->set_y(0);
+		}
+		else if (ob->get_x() > cfg.colunas - 1 && ob->get_y() > 0 && cfg.linhas - 1 > ob->get_y())
+			ob->set_x(0);
+		else if (ob->get_y() > cfg.linhas - 1 && ob->get_x() > 0)
+			ob->set_y(0);
+
+		cout << "Coords: (" << ob->get_x() << ";" << ob->get_y() << ")" << endl;
 	}
 
 	// se a nova celula for terra -> fica na posicao antiga 'antX/Y'
-	if(mapa[cfg.colunas*ob->get_y() + ob->get_x()].getTipo() == '+')
+	if (mapa[cfg.colunas*ob->get_y() + ob->get_x()].getTipo() == '+')
 	{
-		cout << "deixei de ser um barco todo o terreno!" << endl;
+		//DEBUG: cout << "deixei de ser um barco todo o terreno!" << endl;
 		ob->set_x(antX);
 		ob->set_y(antY);
 	}
@@ -179,6 +226,17 @@ void Jogador::pagar(int preco)
 	moedas -= preco;
 }
 
+
+void Jogador::addPorto(Porto * ob)
+{
+	portos.push_back(ob);
+	sort(portos.begin(), portos.end());
+}
+
+//void Jogador::setPrincipal()
+//{
+//	portoPrincipal = portos[0];
+//}
 
 Jogador::~Jogador()
 {

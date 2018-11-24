@@ -66,7 +66,7 @@ void mostra_mapa(const Config& cfg, vector<Celula> mapa) {
 	Consola::setTextColor(Consola::BRANCO);
 }
 
-void mostra_navios(const Config& cfg, const Jogador& jog,vector <Celula> mapa) {
+void mostra_navios(const Config& cfg, const Jogador& jog, vector <Celula> mapa) {
 
 	for (int i = 0; i < jog.GetnNavios(); i++) {
 		Consola::gotoxy(jog.getNavio(i)->get_x() * 2, jog.getNavio(i)->get_y() * 2 + 1);

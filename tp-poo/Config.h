@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __CONFIG__
+#define __CONFIG__
 
 #include <vector>
 #include "Celula.h"
@@ -14,7 +15,6 @@ struct Config {
 
 // le mapa
 void var(string s, istringstream &le, Config& cfg);
-vector<Celula> le_fich(Config& cfg);
+vector<Celula> le_fich(Config& cfg, Jogador& jogador);
 
-
-
+#endif
