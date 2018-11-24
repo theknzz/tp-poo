@@ -19,7 +19,7 @@ int main()
 	//cout << "######   #    #  #    #    ##    ######       #####   #    #  #  ######   ####   #    # \n\n" << endl;
 
 	cout << "Mapas Disponiveis: \n" << "\t > mapa.txt\n" << "\t > cercado.txt\n" << "\t > mar.txt\n" << endl;
-	Jogador jogador(cfg.moedas);
+	Jogador jogador;
 	auto mapa = le_fich(cfg, jogador);
 	//cout << "Coords: (" << jogador.getPrin_x() << ";" << jogador.getPrin_y() << ")" << endl;
 

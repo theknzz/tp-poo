@@ -3,14 +3,12 @@
 
 #include <vector>
 #include "Celula.h"
+#include "Jogador.h"
 
 using namespace std;
 
 struct Config {
-	int linhas;
-	int colunas;
-	int moedas;
-	int probpirata, preconavio, precosoldado, precovendpeixe, precocompmercad, precovendmercad, soldadosporto, probevento, probtempestade, probsereias, probcalmaria, probmotim;
+	int linhas, colunas, moedas, probpirata, preconavio, precosoldado, precovendpeixe, precocompmercad, precovendmercad, soldadosporto, probevento, probtempestade, probsereias, probcalmaria, probmotim;
 };
 
 // le mapa

@@ -4,12 +4,12 @@
 #include <vector>
 #include "Navio.h"
 #include "Celula.h"
-#include "Config.h"
 
 using namespace std;
 
 class Navio;
 class Porto;
+struct Config;
 
 class Jogador
 {
@@ -20,7 +20,7 @@ class Jogador
 	vector <Porto*> portosInimigos;
 	//Porto* portoPrincipal;
 public:
-	Jogador(int n, string na = "player");
+	Jogador(string na = "player");
 
 	// funcoes get
 	int getMoedas()const;
@@ -29,6 +29,7 @@ public:
 	// funcoes set
 	void setNome(string na);
 	void pagar(int preco);
+	void setMoedas(int n);
 
 	void addNavio(Navio* aux);
 	Navio* getNavio(int i) const;

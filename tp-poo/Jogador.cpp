@@ -4,9 +4,10 @@
 #include <iostream>
 #include <ctime>
 #include <algorithm>
+#include "Config.h"
 
-Jogador::Jogador(int n, string na)
-	:moedas(n), nome(na)
+Jogador::Jogador(string na)
+	:nome(na)
 {
 }
 
@@ -39,7 +40,7 @@ Navio* Jogador::encontraNav(const int num) const
 
 bool Jogador::moveNavio(const int id, vector <Celula> mapa, const Config& cfg) // considerando que o movimento de todos os navios é de uma celula
 {
-	srand(time(NULL));
+	srand((int)time(NULL));
 
 	// find Navio de com id = num
 	Navio* ob = encontraNav(id);
@@ -224,6 +225,11 @@ void Jogador::setNome(string na)
 void Jogador::pagar(int preco)
 {
 	moedas -= preco;
+}
+
+void Jogador::setMoedas(int n)
+{
+	moedas = n;
 }
 
 

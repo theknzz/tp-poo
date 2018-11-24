@@ -4,7 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "Jogador.h"
+
 
 
 void var(string var, istringstream &le, Config& cfg)
@@ -112,6 +112,8 @@ vector<Celula> le_fich(Config& cfg, Jogador & jogador)
 					pt = &x;
 					jogador.addPorto(pt);
 				}
+				Celula a(j, i, ch, pt);
+				cel.push_back(a);
 			}
 			else
 			{
@@ -136,6 +138,8 @@ vector<Celula> le_fich(Config& cfg, Jogador & jogador)
 	}
 
 	fich.close();
+
+	jogador.setMoedas(cfg.moedas);
 
 	return cel;
 }
