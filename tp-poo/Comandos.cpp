@@ -34,7 +34,7 @@ void Comandos::menu(Jogador& jogador, vector<Celula> mapa, const Config& cfg) co
 			getline(cin, na);
 			if (!na.empty())
 				jogador.setNome(na);
-			cout << "O jogador [" << jogador.getNome() << "] consegui " << " 100 " << "pontos" << endl;
+			cout << "O jogador [" << jogador.getNome() << "] consegui " << cfg.moedas << " pontos" << endl;
 			return;
 		}
 		else if (opt == -1)
