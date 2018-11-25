@@ -41,7 +41,7 @@ public:
 	string getAsString()const;
 
 	void addPorto(Porto *ob);
-
+	void addPortoInimigo(Porto *ob);
 	void mostraPortos() const;
 
 	int getPrin_x() const;

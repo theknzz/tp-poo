@@ -99,14 +99,14 @@ vector<Celula> le_fich(Config& cfg, Jogador & jogador)
 			if (ch != '.' && ch != '+')
 			{
 				const auto ver = isupper(ch);
-				if (ver == 0)
+				if (ver == 0) // letra minuscula
 				{
 					Porto * pt = new Porto(ch, j, i);
-					jogador.addPorto(pt);
+					jogador.addPortoInimigo(pt);
 					Celula a(j, i, ch, pt);
 					cel.push_back(a);
 				}
-				else
+				else // letra maiscula
 				{
 					Porto * pt = new Porto(ch, j, i);
 					jogador.addPorto(pt);

@@ -1,4 +1,6 @@
 #include "Celula.h"
+#include <iostream>
+
 
 Celula::~Celula()
 {

@@ -27,7 +27,7 @@ Navio* Jogador::getNavio(int i) const {
 }
 
 int Jogador::GetnNavios() const {
-	return (int)navios.size();
+	return static_cast<int>(navios.size());
 }
 
 Navio* Jogador::encontraNav(const int num) const
@@ -41,7 +41,7 @@ Navio* Jogador::encontraNav(const int num) const
 
 bool Jogador::moveNavio(const int id, vector <Celula> mapa, const Config& cfg) // considerando que o movimento de todos os navios é de uma celula
 {
-	srand((int)time(NULL));
+	srand(static_cast<int>(time(NULL)));
 
 	// find Navio de com id = num
 	Navio* ob = encontraNav(id);
@@ -240,12 +240,23 @@ void Jogador::addPorto(Porto *ob)
 	portos.push_back(ob);
 }
 
+void Jogador::addPortoInimigo(Porto* ob)
+{
+	portosInimigos.push_back(ob);
+}
+
 void Jogador::mostraPortos() const
 {
+	//debug
 	for(unsigned i = 0; i < portos.size() ; i++)
 	{
-		cout << "RIME FODIME" <<"ID: " << portos[i]->getID() << endl;
+		cout << "Porto: " <<"\nID: " << portos[i]->getID() << endl;
 	}
+	for(unsigned i = 0; i < portosInimigos.size() ; i++)
+	{
+		cout << "Porto Inimigo: " <<"\nID: " << portosInimigos[i]->getID() << endl;
+	}
+
 }
 
 int Jogador::getPrin_x() const
@@ -290,7 +301,7 @@ Jogador::~Jogador()
 {
 	for(auto i = 0; i < portos.size(); i++)
 	{
-		cout << "adeus porto" << endl;
 		delete portos[i];
+		delete portosInimigos[i];
 	}
 }
