@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\mapas">
+      <UniqueIdentifier>{023522f0-a18c-4c30-94b7-2c4e564f0834}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\scripts">
+      <UniqueIdentifier>{919cc192-d373-4104-8a2e-c372aa727977}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\mapa">
+      <UniqueIdentifier>{0758e56c-861c-4b6d-bebc-e6c1f8f5396c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\navios">
+      <UniqueIdentifier>{53916dbe-75d7-4be6-b296-8c1b9519f9d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\interacao">
+      <UniqueIdentifier>{2b8aa9c6-6da9-4d04-93c6-4de3a6d2fb48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\logica">
+      <UniqueIdentifier>{fe5427cc-2b9f-4c6e-8f18-aa11da53e2e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\mapa">
+      <UniqueIdentifier>{cd8a5304-d77c-4dd3-963f-9ca979a22b7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\navios">
+      <UniqueIdentifier>{f27cd5b0-6b99-4a51-aba4-885b5b6c05eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\interacao">
+      <UniqueIdentifier>{1c46759a-420e-4917-adb1-8a3869b48c58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\logica">
+      <UniqueIdentifier>{95cd46e9-e1b9-4341-bee7-e6a884027908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\eventos">
+      <UniqueIdentifier>{95dd87c7-e2d2-4cee-a1eb-40dd0f4b7920}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\eventos">
+      <UniqueIdentifier>{594c5eb6-c384-48b8-892c-04af178f85cf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Celula.cpp">
+      <Filter>Source Files\mapa</Filter>
+    </ClCompile>
+    <ClCompile Include="Porto.cpp">
+      <Filter>Source Files\mapa</Filter>
+    </ClCompile>
+    <ClCompile Include="Config.cpp">
+      <Filter>Source Files\mapa</Filter>
+    </ClCompile>
+    <ClCompile Include="Escuna.cpp">
+      <Filter>Source Files\navios</Filter>
+    </ClCompile>
+    <ClCompile Include="Especial.cpp">
+      <Filter>Source Files\navios</Filter>
+    </ClCompile>
+    <ClCompile Include="Fragata.cpp">
+      <Filter>Source Files\navios</Filter>
+    </ClCompile>
+    <ClCompile Include="Galeao.cpp">
+      <Filter>Source Files\navios</Filter>
+    </ClCompile>
+    <ClCompile Include="Veleiro.cpp">
+      <Filter>Source Files\navios</Filter>
+    </ClCompile>
+    <ClCompile Include="Navio.cpp">
+      <Filter>Source Files\navios</Filter>
+    </ClCompile>
+    <ClCompile Include="Interacao.cpp">
+      <Filter>Source Files\interacao</Filter>
+    </ClCompile>
+    <ClCompile Include="Consola.cpp">
+      <Filter>Source Files\interacao</Filter>
+    </ClCompile>
+    <ClCompile Include="Jogo.cpp">
+      <Filter>Source Files\logica</Filter>
+    </ClCompile>
+    <ClCompile Include="Jogador.cpp">
+      <Filter>Source Files\interacao</Filter>
+    </ClCompile>
+    <ClCompile Include="Calmaria.cpp">
+      <Filter>Source Files\eventos</Filter>
+    </ClCompile>
+    <ClCompile Include="Motim.cpp">
+      <Filter>Source Files\eventos</Filter>
+    </ClCompile>
+    <ClCompile Include="Sereias.cpp">
+      <Filter>Source Files\eventos</Filter>
+    </ClCompile>
+    <ClCompile Include="Tempestade.cpp">
+      <Filter>Source Files\eventos</Filter>
+    </ClCompile>
+    <ClCompile Include="Evento.cpp">
+      <Filter>Source Files\eventos</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Celula.h">
+      <Filter>Header Files\mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="Config.h">
+      <Filter>Header Files\mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="Porto.h">
+      <Filter>Header Files\mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="Jogo.h">
+      <Filter>Header Files\logica</Filter>
+    </ClInclude>
+    <ClInclude Include="Jogador.h">
+      <Filter>Header Files\interacao</Filter>
+    </ClInclude>
+    <ClInclude Include="Interacao.h">
+      <Filter>Header Files\interacao</Filter>
+    </ClInclude>
+    <ClInclude Include="Veleiro.h">
+      <Filter>Header Files\navios</Filter>
+    </ClInclude>
+    <ClInclude Include="Escuna.h">
+      <Filter>Header Files\navios</Filter>
+    </ClInclude>
+    <ClInclude Include="Especial.h">
+      <Filter>Header Files\navios</Filter>
+    </ClInclude>
+    <ClInclude Include="Fragata.h">
+      <Filter>Header Files\navios</Filter>
+    </ClInclude>
+    <ClInclude Include="Galeao.h">
+      <Filter>Header Files\navios</Filter>
+    </ClInclude>
+    <ClInclude Include="Navio.h">
+      <Filter>Header Files\navios</Filter>
+    </ClInclude>
+    <ClInclude Include="Consola.h">
+      <Filter>Header Files\interacao</Filter>
+    </ClInclude>
+    <ClInclude Include="Calmaria.h">
+      <Filter>Header Files\eventos</Filter>
+    </ClInclude>
+    <ClInclude Include="Evento.h">
+      <Filter>Header Files\eventos</Filter>
+    </ClInclude>
+    <ClInclude Include="Motim.h">
+      <Filter>Header Files\eventos</Filter>
+    </ClInclude>
+    <ClInclude Include="Sereias.h">
+      <Filter>Header Files\eventos</Filter>
+    </ClInclude>
+    <ClInclude Include="Tempestade.h">
+      <Filter>Header Files\eventos</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="mar.txt">
+      <Filter>Resource Files\mapas</Filter>
+    </Text>
+    <Text Include="cercado.txt">
+      <Filter>Resource Files\mapas</Filter>
+    </Text>
+    <Text Include="mapa.txt">
+      <Filter>Resource Files\mapas</Filter>
+    </Text>
+    <Text Include="teste.txt">
+      <Filter>Resource Files\scripts</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

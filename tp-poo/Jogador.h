@@ -2,52 +2,35 @@
 #define __JOGADOR__
 
 #include <vector>
-#include "Navio.h"
-#include "Celula.h"
+#include <sstream>
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <algorithm>
+#include <string>
 
 using namespace std;
-
-class Navio;
-class Porto;
-struct Config;
 
 class Jogador
 {
 	string nome;
 	int moedas;
-	vector <Navio*> navios;
-	vector <Porto*> portos;
-	vector <Porto*> portosInimigos;
-	//Porto* portoPrincipal;
+	int pontuacao;
 public:
 	Jogador(string na = "player");
 
 	// funcoes get
-	int getMoedas()const;
-	string getNome()const;
+	int getMoedas()const { return moedas; }
+	string getNome()const { return nome; }
 
 	// funcoes set
-	void setNome(string na);
-	void pagar(int preco);
-	void setMoedas(int n);
+	void setNome(string na) { nome = na; }
+	void setMoedas(int n) { moedas = n; }
 
-	void addNavio(Navio* aux);
-	Navio* getNavio(int i) const;
-	int GetnNavios() const;
-	Navio* encontraNav(int num)const;
+	void setPontuacao(int n) { pontuacao = n; }
 
-	bool moveNavio(int i, vector <Celula> mapa, const Config& cfg);
-
-	string getAsString()const;
-
-	void addPorto(Porto *ob);
-	void addPortoInimigo(Porto *ob);
-	void mostraPortos() const;
-
-	int getPrin_x() const;
-	int getPrin_y() const;
-	char getId() const;
-	// void setPrincipal();
+	string getAsString()const; // falta implementar
+		
 	~Jogador();
 };
 

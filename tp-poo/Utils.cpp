@@ -1,15 +1,5 @@
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <iostream>
-#include <cctype>
-
+#include "pch.h"
 #include "Utils.h"
-#include "Jogador.h"
-#include "Navio.h"
-#include "consola.h"
-
-using namespace std;
 
 int Utils::menu_opt(string s)
 {
@@ -107,7 +97,7 @@ int Utils::menu_opt(string s)
 	return opt;
 }
 
-int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> mapa, const Config& cfg)
+int Utils::opt(int opt, istringstream &iss, Jogo &jg)
 {
 	switch (opt)
 	{
@@ -132,67 +122,79 @@ int Utils::opt(int opt, istringstream &iss, Jogador &jogador, vector <Celula> ma
 		iss >> tipo;
 
 		// garantir que nao ha erros
-		tipo = toupper(tipo);
-
-		switch (tipo)
-		{
-		case 'V': // veleiro
-			if (jogador.getMoedas() >= cfg.preconavio) {
-
-				auto* x = new Navio(tipo, cfg.preconavio, 200, 0, 40, jogador.getPrin_x(), jogador.getPrin_y());
-				jogador.pagar(cfg.preconavio);
-				jogador.addNavio(x);
-				cout << "Moedas: " << jogador.getMoedas() << endl;
+		if (jg.jog_getmoedas() >= jg.conf_getpreconavios()){
+			if (jg.compra_navio(toupper(tipo))) {
+				cout << "Navio comprado com sucesso!" << '\n' << "Moedas: " << jg.jog_getmoedas() << endl;
 			}
-			else
-				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
-			break;
-
-		case 'G': // galeao
-			if (jogador.getMoedas() >= cfg.preconavio)
-			{
-				auto* x = new Navio(tipo, cfg.preconavio, 400, 0, 70, jogador.getPrin_x(), jogador.getPrin_y());
-				jogador.pagar(cfg.preconavio);
-				jogador.addNavio(x);
-				cout << "Moedas: " << jogador.getMoedas() << endl;
+			else{
+				cout << "[ERRO] Tipo: " << "<" << tipo << "> nao existe \n" << "COMANDO : compranav <V/G/E/F/R> " << endl;
 			}
-			else
-				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
-			break;
-
-		case 'E': // escuna
-			if (jogador.getMoedas() >= cfg.preconavio)
-			{
-				auto* x = new Navio(tipo, cfg.preconavio, 100, 0, 20, jogador.getPrin_x(), jogador.getPrin_y());
-				jogador.pagar(cfg.preconavio);
-				jogador.addNavio(x);
-				cout << "Moedas: " << jogador.getMoedas() << endl;
-			}
-			else
-				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
-			break;
-
-		case 'F': // fragata
-			if (jogador.getMoedas() >= cfg.preconavio)
-			{
-				auto* x = new Navio(tipo, cfg.preconavio, 500, 0, 0, jogador.getPrin_x(), jogador.getPrin_y());
-				jogador.pagar(cfg.preconavio);
-				jogador.addNavio(x);
-				cout << "Moedas: " << jogador.getMoedas() << endl;
-			}
-			else
-				cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
-			break;
-
-		case 'R': // especial
-			cout << "Especial" << endl;
-			break;
-
-		default:
-			cout << "[ERRO] Tipo: " << "<" << tipo << "> nao existe \n" << "COMANDO : compranav <V/G/E/F/R> " << endl;
-			break;
+		
 		}
-		break;
+		else
+			cout << "Moedas insuficientes...\n" << "O jogador tem " << jg.jog_getmoedas() << " moedas e sao precisas " << jg.conf_getpreconavios() << " moedas" << endl;
+
+		//switch (tipo)
+		//{
+		//case 'V': // veleiro
+		//	Jogador.compraVeleiro();
+
+		//	/*if (jogador.getMoedas() >= cfg.preconavio) {
+
+		//		auto* x = new Navio(tipo, cfg.preconavio, 200, 0, 40, jogador.getPrin_x(), jogador.getPrin_y());
+		//		jogador.pagar(cfg.preconavio);
+		//		jogador.addNavio(x);
+		//		cout << "Moedas: " << jogador.getMoedas() << endl;
+		//	}
+		//	else
+		//		cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
+		//	break;*/
+
+		//case 'G': // galeao
+		//	if (jogador.getMoedas() >= cfg.preconavio)
+		//	{
+		//		auto* x = new Navio(tipo, cfg.preconavio, 400, 0, 70, jogador.getPrin_x(), jogador.getPrin_y());
+		//		jogador.pagar(cfg.preconavio);
+		//		jogador.addNavio(x);
+		//		cout << "Moedas: " << jogador.getMoedas() << endl;
+		//	}
+		//	else
+		//		cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
+		//	break;
+
+		//case 'E': // escuna
+		//	if (jogador.getMoedas() >= cfg.preconavio)
+		//	{
+		//		auto* x = new Navio(tipo, cfg.preconavio, 100, 0, 20, jogador.getPrin_x(), jogador.getPrin_y());
+		//		jogador.pagar(cfg.preconavio);
+		//		jogador.addNavio(x);
+		//		cout << "Moedas: " << jogador.getMoedas() << endl;
+		//	}
+		//	else
+		//		cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
+		//	break;
+
+		//case 'F': // fragata
+		//	if (jogador.getMoedas() >= cfg.preconavio)
+		//	{
+		//		auto* x = new Navio(tipo, cfg.preconavio, 500, 0, 0, jogador.getPrin_x(), jogador.getPrin_y());
+		//		jogador.pagar(cfg.preconavio);
+		//		jogador.addNavio(x);
+		//		cout << "Moedas: " << jogador.getMoedas() << endl;
+		//	}
+		//	else
+		//		cout << "Moedas insuficientes...\n" << "O jogador tem " << jogador.getMoedas() << " moedas e sao precisas " << cfg.preconavio << " moedas" << endl;
+		//	break;
+
+		//case 'R': // especial
+		//	cout << "Especial" << endl;
+		//	break;
+
+		//default:
+		//	cout << "[ERRO] Tipo: " << "<" << tipo << "> nao existe \n" << "COMANDO : compranav <V/G/E/F/R> " << endl;
+		//	break;
+		//}
+		//break;
 
 	case 4: // vendenav <T>
 		cout << "Navio vendido!" << endl;

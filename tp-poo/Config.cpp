@@ -1,16 +1,9 @@
+ 
 #include "Config.h"
-#include "Celula.h"
-
-#include <iostream>
-#include <fstream>
-#include <sstream>
-
-
 
 void var(string var, istringstream &le, Config& cfg)
 {
 	int value;
-
 	if (var == "moedas") {
 		le >> value;
 		cfg.moedas = value;
@@ -63,82 +56,26 @@ void var(string var, istringstream &le, Config& cfg)
 		le >> value;
 		cfg.probmotim = value;
 	}
+	else if (var == "precoveleiro") {
+		le >> value;
+		cfg.precoveleiro = value;
+	}
+	else if (var == "precogaleao") {
+		le >> value;
+		cfg.precogaleao = value;
+	}
+	else if (var == "precoescuna") {
+		le >> value;
+		cfg.precoescuna = value;
+	}
+	else if (var == "precofragata") {
+		le >> value;
+		cfg.precofragata = value;
+	}
+	else if (var == "precoespecial") {
+		le >> value;
+		cfg.precoespecial = value;
+	}		
 }
 
 
-vector<Celula> le_fich(Config& cfg, Jogador & jogador)
-{
-	char ch;
-	string str;
-	vector<Celula> cel;
-
-	string nome_fich;
-
-	cout << "Nome do fich: ";
-	cin >> nome_fich;
-	ifstream fich(nome_fich);
-
-	for (auto i = 0; i < 2; i++)
-	{
-		getline(fich, str);
-		istringstream iss(str);
-		iss >> str;
-		if (str == "linhas")
-			iss >> cfg.linhas;
-		else
-			iss >> cfg.colunas;
-	}
-
-
-	for (auto i = 0; i < cfg.linhas; i++)
-	{
-		for (auto j = 0; j < cfg.colunas; j++)
-		{
-			fich >> ch;
-
-			if (ch != '.' && ch != '+')
-			{
-				const auto ver = isupper(ch);
-				if (ver == 0) // letra minuscula
-				{
-					Porto * pt = new Porto(ch, j, i);
-					jogador.addPortoInimigo(pt);
-					Celula a(j, i, ch, pt);
-					cel.push_back(a);
-				}
-				else // letra maiscula
-				{
-					Porto * pt = new Porto(ch, j, i);
-					jogador.addPorto(pt);
-					Celula a(j, i, ch, pt);
-					cel.push_back(a);
-				}
-			}
-			else
-			{
-				Celula a(j, i, ch);
-				cel.push_back(a);
-			}
-		}
-	}
-
-	// apanhar o enter
-	getline(fich, str);
-
-	while (!fich.eof())
-	{
-		getline(fich, str);
-		istringstream le(str);
-		le >> str;
-		var(str, le, cfg);
-
-		if (str.empty())
-			break;
-	}
-
-	fich.close();
-
-	jogador.setMoedas(cfg.moedas);
-
-	return cel;
-}

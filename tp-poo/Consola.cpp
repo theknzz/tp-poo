@@ -19,7 +19,6 @@ Nov 2018 - Pequenos melhoramentos nos comentários
 #include <windows.h>
 #include <stdio.h>
 
-
 // Definição das variáveis estáticas
 HANDLE Consola::hconsola = GetStdHandle(STD_OUTPUT_HANDLE);
 HANDLE Consola::hStdin = GetStdHandle(STD_INPUT_HANDLE);;

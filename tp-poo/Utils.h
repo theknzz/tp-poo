@@ -1,16 +1,12 @@
 #pragma once
 #include <string>
-#include <sstream>
-#include "Config.h"
-
-class Jogador;
-class Celula;
-using namespace std;
+#include "Jogo.h"
+#include "consola.h"
 
 class Utils
 {
 public:
 	// menu
 	static int menu_opt(string s);
-	static int opt(int opt, istringstream &iss, Jogador &jogador, const vector <Celula> mapa, const Config& cfg);
+	static int opt(int opt, istringstream &iss, Jogo &jg);
 };

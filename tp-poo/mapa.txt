@@ -13,6 +13,11 @@ colunas 20
 moedas 1000
 probpirata 20
 preconavio 100
+precoveleiro 100
+precoescuna 100
+precogaleao 100
+precofragata 100
+precoespecial 250
 precosoldado 1
 precovendpeixe 1
 precocompmercad 2
